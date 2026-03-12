@@ -34,7 +34,7 @@ const stackCategories = [
   },
   {
     title: "Cloud & Kubernetes",
-    items: ["Kubernetes (EKS, GKE, on-prem)", "Rancher", "ArgoCD", "AWS (EC2, RDS, S3, Route53)", "GCP (GKE, CloudSQL, GCS)", "Confluent Kafka"],
+    items: ["Kubernetes (EKS, GKE, on-prem)", "Rancher", "ArgoCD", "AWS (EC2, RDS, S3, Route53)", "GCP (GKE, CloudSQL, GCS)"],
   },
   {
     title: "Observabilité",
@@ -78,28 +78,29 @@ const formations = [
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE — violet -->
   <section class="py-28 relative" id="experience">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/[0.04] to-transparent"></div>
+    <div class="relative max-w-5xl mx-auto px-6">
       <div class="flex items-center gap-4 mb-12 animate">
-        <span class="text-accent-violet/60 font-mono text-sm">01</span>
+        <span class="text-violet-400/60 font-mono text-sm">01</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white/90">Expérience</h2>
       </div>
 
       <div class="space-y-14">
         {experiences.map((exp, i) => (
-          <div class="group relative pl-8 border-l border-moon-800 hover:border-accent-violet/30 transition-colors duration-500 animate" style={`animation-delay: ${i * 100}ms`}>
-            <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-moon-800 group-hover:bg-accent-violet/60 transition-colors duration-500"></div>
+          <div class="group relative pl-8 border-l border-moon-800 hover:border-violet-400/30 transition-colors duration-500 animate" style={`animation-delay: ${i * 100}ms`}>
+            <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-moon-800 group-hover:bg-violet-400/60 transition-colors duration-500"></div>
             
             <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-1">
               <h3 class="text-lg font-semibold text-white/90">{exp.role}</h3>
-              <span class="text-accent-violet/70 font-mono text-sm">{exp.company}</span>
+              <span class="text-violet-400/70 font-mono text-sm">{exp.company}</span>
             </div>
             <div class="text-sm text-slate-500 mb-4 font-mono">{exp.period}</div>
             <ul class="space-y-1.5">
               {exp.tasks.map(task => (
                 <li class="flex gap-3 text-slate-400 text-sm">
-                  <span class="text-accent-pink/50 mt-0.5">›</span>
+                  <span class="text-violet-400/40 mt-0.5">›</span>
                   <span>{task}</span>
                 </li>
               ))}
@@ -110,22 +111,23 @@ const formations = [
     </div>
   </section>
 
-  <!-- COMPÉTENCES -->
+  <!-- COMPÉTENCES — rose -->
   <section class="py-28 relative" id="skills">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pink-950/[0.04] to-transparent"></div>
+    <div class="relative max-w-5xl mx-auto px-6">
       <div class="flex items-center gap-4 mb-12 animate">
-        <span class="text-accent-violet/60 font-mono text-sm">02</span>
+        <span class="text-pink-400/60 font-mono text-sm">02</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white/90">Compétences</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-12">
         {stackCategories.map((cat, i) => (
           <div class="animate" style={`animation-delay: ${i * 80}ms`}>
-            <h3 class="text-sm font-mono text-accent-violet/60 uppercase tracking-wider mb-5">{cat.title}</h3>
+            <h3 class="text-sm font-mono text-pink-400/50 uppercase tracking-wider mb-5">{cat.title}</h3>
             <ul class="space-y-2.5">
               {cat.items.map(item => (
                 <li class="text-slate-300 flex items-center gap-3">
-                  <span class="w-1 h-1 rounded-full bg-accent-violet/40 flex-shrink-0"></span>
+                  <span class="w-1 h-1 rounded-full bg-pink-400/30 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -136,18 +138,19 @@ const formations = [
     </div>
   </section>
 
-  <!-- FORMATION -->
+  <!-- FORMATION — bleu -->
   <section class="py-28 relative" id="formation">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/[0.04] to-transparent"></div>
+    <div class="relative max-w-5xl mx-auto px-6">
       <div class="flex items-center gap-4 mb-12 animate">
-        <span class="text-accent-violet/60 font-mono text-sm">03</span>
+        <span class="text-blue-400/60 font-mono text-sm">03</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white/90">Formation</h2>
       </div>
 
       <div class="space-y-6">
         {formations.map((f, i) => (
           <div class="flex gap-6 items-baseline animate" style={`animation-delay: ${i * 80}ms`}>
-            <span class="text-sm font-mono text-moon-600 w-12 flex-shrink-0">{f.year}</span>
+            <span class="text-sm font-mono text-blue-400/30 w-12 flex-shrink-0">{f.year}</span>
             <div>
               <h3 class="text-base font-medium text-white/85">{f.title}</h3>
               <p class="text-sm text-slate-500">{f.school}</p>
@@ -156,14 +159,38 @@ const formations = [
         ))}
       </div>
 
-      <div class="mt-10 flex items-center gap-3 text-sm text-slate-500 animate">
-        <span>🇬🇧</span>
-        <span>Anglais — TOEIC 895/990</span>
+      <!-- Langues -->
+      <div class="mt-14 animate">
+        <h3 class="text-sm font-mono text-blue-400/50 uppercase tracking-wider mb-5">Langues</h3>
+        <div class="flex gap-8">
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-medium text-white/80">Français</span>
+            <div class="flex gap-1">
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+            </div>
+            <span class="text-xs text-slate-600">natif</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-medium text-white/80">English</span>
+            <div class="flex gap-1">
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/60"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/20"></span>
+            </div>
+            <span class="text-xs text-slate-600">TOEIC 895</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT — violet -->
   <section class="py-28 relative" id="contact">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <div class="flex items-center justify-center gap-4 mb-6 animate">
