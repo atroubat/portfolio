@@ -2,7 +2,7 @@ import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
   NAME: "Alexandre Troubat",
-  EMAIL: "contact@atroubat.fr",
+  EMAIL: "atroubat@atroubat.fr",
   NUM_POSTS_ON_HOMEPAGE: 0,
   NUM_WORKS_ON_HOMEPAGE: 2,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
