@@ -1,168 +1,346 @@
 ---
-import { getCollection } from "astro:content";
-import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import ArrowCard from "@components/ArrowCard.astro";
-import Link from "@components/Link.astro";
-import { dateRange } from "@lib/utils";
-import { SITE, HOME, SOCIALS } from "@consts";
+import { SITE } from "@consts";
 
-const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
+const stats = [
+  { value: "6+", label: "années d'expérience" },
+  { value: "SRE", label: "chez Equativ" },
+  { value: "HA", label: "infrastructure mondiale" },
+  { value: "24/7", label: "haute disponibilité" },
+];
 
-const allwork = (await getCollection("work"))
-  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-  .slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
+const expertise = [
+  {
+    title: "Infrastructure & SRE",
+    description: "Déploiement, administration et tuning d'infrastructures mondiales à haute disponibilité. Automatisation avec Ansible, provisioning cloud AWS/OVH, zero-downtime deploys.",
+    icon: "🖥️",
+  },
+  {
+    title: "Observabilité",
+    description: "Stacks Prometheus, Grafana, Loki, Alertmanager. Des alertes pertinentes, pas du bruit. Une culture on-call saine et efficace.",
+    icon: "📊",
+  },
+  {
+    title: "Kubernetes & CI/CD",
+    description: "Clusters Kubernetes avec Rancher, pipelines CI/CD GitLab, architecture microservices. Du code au prod, de manière reproductible.",
+    icon: "⚙️",
+  },
+  {
+    title: "Sécurité",
+    description: "VPN, firewalling, routage, plans de sécurité informatique. La sécurité intégrée dès la conception, pas en afterthought.",
+    icon: "🔒",
+  },
+];
 
-const work = await Promise.all(
-  allwork.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
-  })
-);
+const experiences = [
+  {
+    role: "Site Reliability Engineer",
+    company: "Equativ",
+    location: "Limoges",
+    period: "Juin 2019 — Présent",
+    duration: "6+ ans",
+    description: "Infrastructure mondiale à haute disponibilité pour une plateforme adtech.",
+    tasks: [
+      "Déploiement, administration, sécurisation et tuning de l'infrastructure mondiale",
+      "Mise en place d'une solution de catégorisation d'URLs (microservices, Kafka, Kubernetes)",
+      "Pipelines CI/CD GitLab — déploiement et tests automatisés",
+      "Monitoring & alerting : Grafana, Prometheus, Alertmanager",
+      "Validation technique des mises en production",
+    ],
+    tags: ["Kubernetes", "Ansible", "Prometheus", "Kafka", "GitLab CI", "Docker", "AWS"],
+  },
+  {
+    role: "Administrateur Système & Réseaux",
+    company: "Célios Conseils",
+    location: "Limoges",
+    period: "Sept 2017 — Juin 2019",
+    duration: "2 ans",
+    description: "Administration système et sécurité pour un groupe de conseil.",
+    tasks: [
+      "Étude et mise en place d'un plan de sécurité informatique",
+      "Gestion d'incidents et résolution de premier niveau",
+      "Surveillance des opérations d'exploitation",
+    ],
+    tags: ["Sécurité", "Linux", "Réseau", "Monitoring"],
+  },
+];
 
-const skills = [
-  { category: "Linux", items: "Ubuntu, Debian" },
-  { category: "Cloud", items: "AWS, OVH" },
-  { category: "Conteneurisation", items: "Docker, Kubernetes" },
-  { category: "Automatisation", items: "Ansible" },
-  { category: "CI/CD", items: "GitLab, GitHub" },
-  { category: "Supervision", items: "Zabbix, Prometheus, Loki, Grafana, Alertmanager" },
-  { category: "BDD", items: "MySQL, PostgreSQL" },
-  { category: "Scripting", items: "Shell" },
-  { category: "Sécurité", items: "VPN, Routage, Firewalling" },
+const stackCategories = [
+  {
+    title: "Infrastructure",
+    items: ["Linux (Debian/Ubuntu)", "Ansible", "Docker", "AWS", "OVH"],
+  },
+  {
+    title: "Orchestration",
+    items: ["Kubernetes", "Rancher", "GitLab CI/CD", "GitHub Actions"],
+  },
+  {
+    title: "Observabilité",
+    items: ["Prometheus", "Grafana", "Loki", "Alertmanager", "Zabbix"],
+  },
+  {
+    title: "Data & Messaging",
+    items: ["PostgreSQL", "MySQL", "Kafka (Confluent)"],
+  },
+  {
+    title: "Sécurité & Réseau",
+    items: ["VPN", "Firewalling", "Routage", "Teleport"],
+  },
+  {
+    title: "Scripting & Outils",
+    items: ["Shell/Bash", "Git", "JIRA"],
+  },
+];
+
+const formations = [
+  { year: "2018", title: "Master — Manager de SI et d'Infrastructures", school: "3iL Ingénieurs, Limoges" },
+  { year: "2016", title: "Bachelor — Concepteur de SI option Réseau", school: "3iL Ingénieurs, Limoges" },
+  { year: "2015", title: "BTS SIO — spécialité SISR", school: "Lycée Beaupeyrat, Limoges" },
 ];
 ---
 
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
-      Alexandre Troubat <span class="text-xl">👋</span>
-    </h4>
-    <div class="space-y-16">
-      <section>
-        <article class="space-y-4">
-          <p class="animate">
-            Site Reliability Engineer chez <Link href="https://www.equativ.com" external>Equativ</Link>, basé à Limoges.
-            Je conçois, déploie et maintiens des infrastructures mondiales à haute disponibilité.
-          </p>
-          <p class="animate">
-            Passionné par l'automatisation, le monitoring et les architectures distribuées.
-          </p>
-        </article>
-      </section>
+<PageLayout title="Accueil" description="Alexandre Troubat — Site Reliability Engineer">
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Expérience
-          </h5>
-          <Link href="/work">
-            Tout voir
-          </Link>
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center relative overflow-hidden">
+    <!-- Gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-950 to-emerald-950/20"></div>
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-emerald-500/3 rounded-full blur-3xl"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 w-full">
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 text-emerald-400 text-sm font-mono animate">
+          <span class="w-8 h-px bg-emerald-400"></span>
+          <span>Site Reliability Engineer</span>
         </div>
-        <ul class="flex flex-col space-y-4">
-          {work.map(entry => (
-            <li>
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
-              </div>
-              <div class="text-sm opacity-75">
-                {entry.data.role}
-              </div>
-              <article>
-                <entry.Content />
-              </article>
-            </li>
-          ))}
-        </ul>
-      </section>
+        
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight animate" style="animation-delay: 100ms">
+          Alexandre<br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">Troubat</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-neutral-400 max-w-2xl animate" style="animation-delay: 200ms">
+          Je conçois, déploie et maintiens des infrastructures mondiales à haute disponibilité. 
+          Basé à Limoges, j'assure la fiabilité de systèmes critiques — pour qu'ils tournent, tout simplement.
+        </p>
 
-      <section class="animate space-y-6">
-        <h5 class="font-semibold text-black dark:text-white">
-          Compétences
-        </h5>
-        <ul class="flex flex-wrap gap-2">
-          {skills.map(skill => (
-            <li class="rounded-full border border-black/10 dark:border-white/10 px-3 py-1 text-sm">
-              <span class="font-medium text-black dark:text-white">{skill.category}</span>
-              <span class="opacity-75"> · {skill.items}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <h5 class="font-semibold text-black dark:text-white">
-          Formation
-        </h5>
-        <ul class="flex flex-col space-y-2">
-          <li>
-            <div class="text-sm opacity-75">2018</div>
-            <div class="font-semibold text-black dark:text-white">Master — Manager de SI et d'Infrastructures</div>
-            <div class="text-sm opacity-75">3iL Ingénieurs, Limoges</div>
-          </li>
-          <li>
-            <div class="text-sm opacity-75">2016</div>
-            <div class="font-semibold text-black dark:text-white">Bachelor — Concepteur de SI option Réseau</div>
-            <div class="text-sm opacity-75">3iL Ingénieurs, Limoges</div>
-          </li>
-          <li>
-            <div class="text-sm opacity-75">2015</div>
-            <div class="font-semibold text-black dark:text-white">BTS SIO — spécialité SISR</div>
-            <div class="text-sm opacity-75">Lycée Beaupeyrat, Limoges</div>
-          </li>
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Projets
-          </h5>
-          <Link href="/projects">
-            Tout voir
-          </Link>
+        <div class="flex gap-4 pt-4 animate" style="animation-delay: 300ms">
+          <a href="#experience" class="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-semibold rounded-lg transition-colors duration-300">
+            Mon parcours
+          </a>
+          <a href="https://github.com/atroubat" target="_blank" rel="noopener" class="px-6 py-3 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white rounded-lg transition-colors duration-300">
+            GitHub
+          </a>
         </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      </div>
 
-      <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">
-          Contact
-        </h5>
-        <article>
-          <p>
-            N'hésitez pas à me contacter via les réseaux sociaux ou par email.
-          </p>
-        </article>
-        <ul class="flex flex-wrap gap-2">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
-              </Link>
-              {"/"}
-            </li>
-          ))}
-          <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
-              {SITE.EMAIL}
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-neutral-800">
+        {stats.map((stat, i) => (
+          <div class="animate" style={`animation-delay: ${400 + i * 100}ms`}>
+            <div class="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
+            <div class="text-sm text-neutral-500 mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
     </div>
-  </Container>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate" style="animation-delay: 800ms">
+      <div class="flex flex-col items-center gap-2 text-neutral-600">
+        <span class="text-xs font-mono">scroll</span>
+        <div class="w-px h-8 bg-gradient-to-b from-neutral-600 to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="py-32 relative" id="expertise">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-4 animate">
+        <span class="text-emerald-400 font-mono text-sm">01</span>
+        <span class="text-sm text-neutral-500 uppercase tracking-widest">Ce que je fais</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 animate">
+        Une infrastructure<br/>
+        <span class="text-neutral-500">fiable par conception.</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {expertise.map((item, i) => (
+          <div class="group p-8 rounded-2xl border border-neutral-800 hover:border-emerald-500/30 bg-neutral-900/50 hover:bg-neutral-900 transition-all duration-500 animate" style={`animation-delay: ${i * 100}ms`}>
+            <div class="text-2xl mb-4">{item.icon}</div>
+            <h3 class="text-xl font-semibold text-white mb-3">{item.title}</h3>
+            <p class="text-neutral-400 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="py-32 relative" id="experience">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-4 animate">
+        <span class="text-emerald-400 font-mono text-sm">02</span>
+        <span class="text-sm text-neutral-500 uppercase tracking-widest">Parcours</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 animate">
+        Où j'ai travaillé.
+      </h2>
+
+      <div class="space-y-12">
+        {experiences.map((exp, i) => (
+          <div class="group relative pl-8 border-l-2 border-neutral-800 hover:border-emerald-500/50 transition-colors duration-500 animate" style={`animation-delay: ${i * 150}ms`}>
+            <!-- Timeline dot -->
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-neutral-800 bg-neutral-950 group-hover:border-emerald-500 transition-colors duration-500"></div>
+            
+            <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
+              <h3 class="text-xl font-semibold text-white">{exp.role}</h3>
+              <span class="text-emerald-400 font-mono text-sm">{exp.company}</span>
+            </div>
+            <div class="flex gap-4 text-sm text-neutral-500 mb-4">
+              <span>{exp.period}</span>
+              <span>·</span>
+              <span>{exp.location}</span>
+            </div>
+            <p class="text-neutral-400 mb-4">{exp.description}</p>
+            <ul class="space-y-2 mb-6">
+              {exp.tasks.map(task => (
+                <li class="flex gap-3 text-neutral-400 text-sm">
+                  <span class="text-emerald-500 mt-1.5 flex-shrink-0">▹</span>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              {exp.tags.map(tag => (
+                <span class="px-3 py-1 text-xs font-mono rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-32 relative" id="stack">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-4 animate">
+        <span class="text-emerald-400 font-mono text-sm">03</span>
+        <span class="text-sm text-neutral-500 uppercase tracking-widest">Stack</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 animate">
+        Mes outils<br/>
+        <span class="text-neutral-500">de confiance.</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {stackCategories.map((cat, i) => (
+          <div class="animate" style={`animation-delay: ${i * 100}ms`}>
+            <h3 class="text-sm font-mono text-emerald-400 uppercase tracking-wider mb-4">{cat.title}</h3>
+            <ul class="space-y-2">
+              {cat.items.map(item => (
+                <li class="text-neutral-300 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-neutral-700"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATION -->
+  <section class="py-32 relative" id="formation">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-4 animate">
+        <span class="text-emerald-400 font-mono text-sm">04</span>
+        <span class="text-sm text-neutral-500 uppercase tracking-widest">Formation</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 animate">
+        Mon parcours<br/>
+        <span class="text-neutral-500">académique.</span>
+      </h2>
+
+      <div class="space-y-8">
+        {formations.map((f, i) => (
+          <div class="flex gap-8 items-start animate" style={`animation-delay: ${i * 100}ms`}>
+            <div class="text-2xl font-bold text-neutral-700 font-mono w-20 flex-shrink-0">{f.year}</div>
+            <div>
+              <h3 class="text-lg font-semibold text-white">{f.title}</h3>
+              <p class="text-neutral-500">{f.school}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 rounded-xl border border-neutral-800 bg-neutral-900/50 inline-block animate">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇬🇧</span>
+          <div>
+            <div class="text-white font-medium">Anglais — TOEIC 895/990</div>
+            <div class="text-neutral-500 text-sm">Lu, parlé, écrit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="py-32 relative" id="contact">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-4 mb-4 animate">
+        <span class="text-emerald-400 font-mono text-sm">05</span>
+        <span class="text-sm text-neutral-500 uppercase tracking-widest">Contact</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 animate">
+        Discutons.
+      </h2>
+      <p class="text-neutral-400 max-w-lg mx-auto mb-10 animate">
+        Un projet, une question ou juste envie d'échanger ? N'hésitez pas à me contacter.
+      </p>
+      <div class="flex justify-center gap-4 animate">
+        <a href="mailto:contact@atroubat.fr" class="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-semibold rounded-lg transition-colors duration-300">
+          Me contacter
+        </a>
+        <a href="https://www.linkedin.com/in/alexandre-troubat" target="_blank" rel="noopener" class="px-8 py-4 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white rounded-lg transition-colors duration-300">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-neutral-900">
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
+      <div class="text-sm text-neutral-600">
+        © 2026 Alexandre Troubat
+      </div>
+      <div class="flex gap-6 text-sm text-neutral-600">
+        <a href="https://github.com/atroubat" target="_blank" rel="noopener" class="hover:text-neutral-400 transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/alexandre-troubat" target="_blank" rel="noopener" class="hover:text-neutral-400 transition-colors">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
 </PageLayout>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
