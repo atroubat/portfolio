@@ -35,6 +35,6 @@ export const SOCIALS: Socials = [
   },
   { 
     NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/alexandre-troubat",
+    HREF: "https://www.linkedin.com/in/alexandre-troubat-834661154",
   }
 ];
