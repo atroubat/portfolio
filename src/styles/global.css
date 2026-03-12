@@ -15,8 +15,8 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-neutral-950;
-  @apply text-neutral-400;
+  @apply bg-[#0e0e1a];
+  @apply text-slate-400;
 }
 
 main {
@@ -33,12 +33,6 @@ main {
   @apply opacity-100 translate-y-0;
 }
 
-/* Counter animation */
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
@@ -46,19 +40,19 @@ html {
 
 /* Selection */
 ::selection {
-  @apply bg-emerald-500/20 text-emerald-300;
+  @apply bg-violet-500/20 text-violet-200;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-neutral-950;
+  background: #0e0e1a;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-neutral-800 rounded-full;
+  @apply bg-violet-900/50 rounded-full;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-700;
+  @apply bg-violet-800/50;
 }

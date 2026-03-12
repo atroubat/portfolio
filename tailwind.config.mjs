@@ -12,19 +12,23 @@ export default {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
-      animation: {
-        'fade-in': 'fadeIn 0.8s ease-out forwards',
-        'slide-up': 'slideUp 0.8s ease-out forwards',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+      colors: {
+        moon: {
+          950: '#0e0e1a',
+          900: '#141425',
+          800: '#1e1e35',
+          700: '#2d2b55',
+          600: '#444275',
+          500: '#7c78c8',
+          400: '#a9a5e0',
+          300: '#c8c5f0',
+          200: '#e0def8',
         },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+        accent: {
+          violet: '#b4a5e8',
+          pink: '#e8a5c8',
+          rose: '#f0c5d8',
+        }
       },
     },
   },
