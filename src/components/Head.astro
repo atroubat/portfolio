@@ -1,189 +1,121 @@
 ---
-// src/components/BaseHead.astro - VERSION OPTIMISÉE SEO
-export interface Props {
-  title?: string;
-  description?: string;
+import "../styles/global.css";
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-600.css";
+import "@fontsource/lora/400.css";
+import "@fontsource/lora/600.css";
+import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2";
+import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2";
+import lora400 from "@fontsource/lora/files/lora-latin-400-normal.woff2";
+import lora600 from "@fontsource/lora/files/lora-latin-600-normal.woff2";
+
+import { ClientRouter } from "astro:transitions";
+import { SITE } from "@consts";
+
+interface Props {
+  title: string;
+  description: string;
   image?: string;
-  canonical?: string;
 }
 
 const {
   title = "Alexandre Troubat - SRE DevOps Limoges | Infrastructure Cloud & Monitoring",
   description = "Site Reliability Engineer chez Equativ à Limoges. Expert DevOps, infrastructure cloud, Grafana, Prometheus. Spécialiste monitoring haute disponibilité. Consultant SRE Nouvelle-Aquitaine.",
   image = "/nano.png",
-  canonical = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
-
-const imageUrl = new URL(image, Astro.url.origin).href;
 ---
 
-<!-- Global Metadata OPTIMISÉ -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
-<link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
-<link rel="icon" type="image/x-icon" href="/favicon-light.svg" />
-<meta name="generator" content={Astro.generator} />
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="/favicon-light.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads (keep existing) -->
-<link rel="preload" href="/_astro/inter-latin-400-normal.C38fXH4l.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/_astro/inter-latin-600-normal.LgqL8muc.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/_astro/lora-latin-400-normal.DnxXpLNu.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/_astro/lora-latin-600-normal.B-3RcLOQ.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Font preloads -->
+    <link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonical} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
-<!-- Primary Meta Tags OPTIMISÉS -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+    <!-- Primary Meta Tags OPTIMISÉS SEO -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    
+    <!-- MOTS-CLÉS STRATÉGIQUES -->
+    <meta name="keywords" content="SRE Limoges, DevOps Limoges, Site Reliability Engineer, Infrastructure cloud, Grafana expert, Prometheus monitoring, DevOps consultant Nouvelle-Aquitaine, Spécialiste monitoring haute disponibilité, Terraform Ansible, AWS GCP, Observabilité, SLO SLI, Microservices, CI CD, Docker, Alexandre Troubat, Equativ" />
 
-<!-- MOTS-CLÉS STRATÉGIQUES -->
-<meta name="keywords" content="SRE Limoges, DevOps Limoges, Site Reliability Engineer, Infrastructure cloud, Grafana expert, Prometheus monitoring, DevOps consultant Nouvelle-Aquitaine, Spécialiste monitoring haute disponibilité, Terraform Ansible, AWS GCP, Observabilité, SLO SLI, Microservices, CI CD, Docker, Alexandre Troubat, Equativ" />
+    <!-- GÉOLOCALISATION -->
+    <meta name="geo.region" content="FR-87" />
+    <meta name="geo.placename" content="Limoges, Nouvelle-Aquitaine, France" />
+    <meta name="geo.position" content="45.8336;1.2611" />
 
-<!-- GÉOLOCALISATION -->
-<meta name="geo.region" content="FR-87" />
-<meta name="geo.placename" content="Limoges, Nouvelle-Aquitaine, France" />
-<meta name="geo.position" content="45.8336;1.2611" />
-<meta name="ICBM" content="45.8336, 1.2611" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:locale" content="fr_FR" />
 
-<!-- LANGUE ET LOCALISATION -->
-<meta name="language" content="French" />
-<meta name="author" content="Alexandre Troubat" />
-<meta name="robots" content="index, follow" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Open Graph / Facebook OPTIMISÉ -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonical} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={imageUrl} />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="fr_FR" />
-<meta property="og:site_name" content="Alexandre Troubat - SRE DevOps" />
-
-<!-- Twitter OPTIMISÉ -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={canonical} />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageUrl} />
-<meta name="twitter:creator" content="@atroubat" />
-
-<!-- Schema.org JSON-LD COMPLET -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Alexandre Troubat",
-  "jobTitle": "Site Reliability Engineer",
-  "description": "Expert SRE DevOps spécialisé en infrastructure cloud, observabilité, et monitoring haute disponibilité",
-  "url": "https://atroubat.fr",
-  "image": "https://atroubat.fr/nano.png",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Equativ",
-    "url": "https://equativ.com"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Limoges",
-    "addressRegion": "Nouvelle-Aquitaine",
-    "addressCountry": "France",
-    "postalCode": "87000"
-  },
-  "alumniOf": [
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
     {
-      "@type": "EducationalOrganization",
-      "name": "3iL Ingénieurs",
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexandre Troubat",
+      "jobTitle": "Site Reliability Engineer",
+      "description": "Expert SRE DevOps spécialisé en infrastructure cloud, observabilité, et monitoring haute disponibilité",
+      "url": "https://atroubat.fr",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Equativ"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Limoges",
+        "addressRegion": "Nouvelle-Aquitaine",
         "addressCountry": "France"
-      }
+      },
+      "knowsAbout": [
+        "Site Reliability Engineering",
+        "DevOps",
+        "Infrastructure Cloud",
+        "Grafana",
+        "Prometheus",
+        "Terraform",
+        "Ansible",
+        "Docker",
+        "Monitoring",
+        "Observabilité"
+      ],
+      "sameAs": [
+        "https://linkedin.com/in/alexandre-troubat",
+        "https://github.com/atroubat"
+      ]
     }
-  ],
-  "knowsAbout": [
-    "Site Reliability Engineering",
-    "DevOps",
-    "Observabilité",
-    "Infrastructure Cloud",
-    "AWS",
-    "GCP",
-    "Monitoring",
-    "Grafana",
-    "Prometheus",
-    "Terraform",
-    "Ansible",
-    "Docker",
-    "Microservices",
-    "CI/CD",
-    "High Availability",
-    "SLO/SLI"
-  ],
-  "skills": [
-    "Site Reliability Engineering",
-    "DevOps",
-    "Infrastructure as Code",
-    "Cloud Architecture",
-    "Monitoring & Observability",
-    "Monitoring & Alerting",
-    "Performance Optimization"
-  ],
-  "sameAs": [
-    "https://linkedin.com/in/alexandre-troubat",
-    "https://github.com/atroubat"
-  ]
-}
-</script>
+    </script>
 
-<!-- Schema.org LocalBusiness pour aspect consultant -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Alexandre Troubat - Consultant SRE DevOps",
-  "description": "Services de conseil en Site Reliability Engineering, DevOps et infrastructure cloud à Limoges et Nouvelle-Aquitaine",
-  "url": "https://atroubat.fr",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Limoges",
-    "addressRegion": "Nouvelle-Aquitaine", 
-    "addressCountry": "France"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.8336,
-    "longitude": 1.2611
-  },
-  "serviceArea": {
-    "@type": "State",
-    "name": "Nouvelle-Aquitaine"
-  },
-  "priceRange": "$$",
-  "telephone": "+33",
-  "email": "contact@atroubat.fr",
-  "founder": {
-    "@type": "Person",
-    "name": "Alexandre Troubat"
-  },
-  "areaServed": [
-    "Limoges",
-    "Nouvelle-Aquitaine",
-    "France",
-    "Europe"
-  ],
-  "serviceType": [
-    "Site Reliability Engineering",
-    "DevOps Consulting",
-    "Infrastructure Cloud",
-    "Monitoring & Observability",
-    "Kubernetes Consulting"
-  ]
-}
-</script>
-
-<!-- RSS Link -->
-<link rel="alternate" type="application/rss+xml" title="Alexandre Troubat" href="https://atroubat.fr/rss.xml" />
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title="Alexandre Troubat" href="/rss.xml" />
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
