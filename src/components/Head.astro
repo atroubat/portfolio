@@ -18,104 +18,220 @@ interface Props {
   image?: string;
 }
 
-const {
-  title = "Alexandre Troubat - SRE DevOps Limoges | Infrastructure Cloud & Monitoring",
-  description = "Site Reliability Engineer chez Equativ à Limoges. Expert DevOps, infrastructure cloud, Grafana, Prometheus. Spécialiste monitoring haute disponibilité. Consultant SRE Nouvelle-Aquitaine.",
-  image = "/nano.png",
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const { 
+  title = "Alexandre Troubat - SRE DevOps Limoges | Infrastructure Cloud & Monitoring", 
+  description = "Site Reliability Engineer chez Equativ à Limoges. Expert DevOps, infrastructure cloud, Grafana, Prometheus. Spécialiste monitoring haute disponibilité. Consultant SRE Nouvelle-Aquitaine.", 
+  image = "/nano.png" 
 } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <!-- Global Metadata -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
-    <link rel="icon" type="image/x-icon" href="/favicon-light.svg" />
-    <meta name="generator" content={Astro.generator} />
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/x-icon" href="/favicon-light.svg">
+<meta name="generator" content={Astro.generator} />
 
-    <!-- Font preloads -->
-    <link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin />
+<!-- Font preloads -->
+<link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href={lora400} as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href={lora600} as="font" type="font/woff2" crossorigin/>
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
 
-    <!-- Primary Meta Tags OPTIMISÉS SEO -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    
-    <!-- MOTS-CLÉS STRATÉGIQUES -->
-    <meta name="keywords" content="SRE Limoges, DevOps Limoges, Site Reliability Engineer, Infrastructure cloud, Grafana expert, Prometheus monitoring, DevOps consultant Nouvelle-Aquitaine, Spécialiste monitoring haute disponibilité, Terraform Ansible, AWS GCP, Observabilité, SLO SLI, Microservices, CI CD, Docker, Alexandre Troubat, Equativ" />
+<!-- Primary Meta Tags OPTIMISÉS SEO -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
 
-    <!-- GÉOLOCALISATION -->
-    <meta name="geo.region" content="FR-87" />
-    <meta name="geo.placename" content="Limoges, Nouvelle-Aquitaine, France" />
-    <meta name="geo.position" content="45.8336;1.2611" />
+<!-- MOTS-CLÉS SEO OPTIMISÉS -->
+<meta name="keywords" content="SRE Limoges, DevOps Limoges, Site Reliability Engineer, Infrastructure cloud, Grafana expert, Prometheus monitoring, DevOps consultant Nouvelle-Aquitaine, Spécialiste monitoring haute disponibilité, Terraform Ansible, AWS GCP, Observabilité, SLO SLI, Alexandre Troubat, Equativ" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
-    <meta property="og:locale" content="fr_FR" />
+<!-- GÉOLOCALISATION -->
+<meta name="geo.region" content="FR-87" />
+<meta name="geo.placename" content="Limoges, Nouvelle-Aquitaine, France" />
+<meta name="geo.position" content="45.8336;1.2611" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content="fr_FR" />
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Alexandre Troubat",
-      "jobTitle": "Site Reliability Engineer",
-      "description": "Expert SRE DevOps spécialisé en infrastructure cloud, observabilité, et monitoring haute disponibilité",
-      "url": "https://atroubat.fr",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Equativ"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Limoges",
-        "addressRegion": "Nouvelle-Aquitaine",
-        "addressCountry": "France"
-      },
-      "knowsAbout": [
-        "Site Reliability Engineering",
-        "DevOps",
-        "Infrastructure Cloud",
-        "Grafana",
-        "Prometheus",
-        "Terraform",
-        "Ansible",
-        "Docker",
-        "Monitoring",
-        "Observabilité"
-      ],
-      "sameAs": [
-        "https://linkedin.com/in/alexandre-troubat",
-        "https://github.com/atroubat"
-      ]
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Schema.org JSON-LD pour SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alexandre Troubat",
+  "jobTitle": "Site Reliability Engineer",
+  "description": "Expert SRE DevOps spécialisé en infrastructure cloud, observabilité, et monitoring haute disponibilité",
+  "url": "https://atroubat.fr",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Equativ"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Limoges",
+    "addressRegion": "Nouvelle-Aquitaine",
+    "addressCountry": "France"
+  },
+  "knowsAbout": [
+    "Site Reliability Engineering",
+    "DevOps",
+    "Infrastructure Cloud",
+    "Grafana",
+    "Prometheus",
+    "Terraform",
+    "Ansible",
+    "Docker",
+    "Monitoring",
+    "Observabilité"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/alexandre-troubat",
+    "https://github.com/atroubat"
+  ]
+}
+</script>
+
+<ClientRouter  />
+
+<!-- RSS Link -->
+<link rel="alternate" type="application/rss+xml" title={SITE.NAME} href={new URL("rss.xml", Astro.site)} />
+
+<script>
+  import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
+  document.addEventListener("astro:before-swap", (e) =>
+    [
+      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(
+        "link[as=\"font\"]"
+      ),
+    ].forEach((link) => link.remove())
+  );
+</script>
+
+<script is:inline>
+  function init() {
+    preloadTheme();
+    onScroll();
+    animate();
+
+    const backToTop = document.getElementById("back-to-top");
+    backToTop?.addEventListener("click", (event) => scrollToTop(event));
+
+    const backToPrev = document.getElementById("back-to-prev");
+    backToPrev?.addEventListener("click", () => window.history.back());
+
+    const lightThemeButton = document.getElementById("light-theme-button");
+    lightThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "light");
+      toggleTheme(false);
+    });
+
+    const darkThemeButton = document.getElementById("dark-theme-button");
+    darkThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "dark");
+      toggleTheme(true);
+    });
+
+    const systemThemeButton = document.getElementById("system-theme-button");
+    systemThemeButton?.addEventListener("click", () => {
+      localStorage.setItem("theme", "system");
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", event => {
+        if (localStorage.theme === "system" || !localStorage.theme) {
+          toggleTheme(event.matches);
+        }
+      }
+    );
+
+    document.addEventListener("scroll", onScroll);
+  }
+
+  function animate() {
+    const animateElements = document.querySelectorAll(".animate");
+
+    animateElements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("show");
+      }, index * 150);
+    });
+  }
+
+  function onScroll() {
+    if (window.scrollY > 0) {
+      document.documentElement.classList.add("scrolled");
+    } else {
+      document.documentElement.classList.remove("scrolled");
     }
-    </script>
+  }
 
-    <!-- RSS Link -->
-    <link rel="alternate" type="application/rss+xml" title="Alexandre Troubat" href="/rss.xml" />
-    <ClientRouter />
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
+  function scrollToTop(event) {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+function toggleTheme(dark) {
+    const css = document.createElement("style");
+
+    css.appendChild(
+      document.createTextNode(
+        `* {
+             -webkit-transition: none !important;
+             -moz-transition: none !important;
+             -o-transition: none !important;
+             -ms-transition: none !important;
+             transition: none !important;
+          }
+        `,
+      )
+    );
+
+    document.head.appendChild(css);
+
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+  window.getComputedStyle(css).opacity;
+    document.head.removeChild(css);
+  }
+
+  function preloadTheme() {
+    const userTheme = localStorage.theme;
+
+    if (userTheme === "light" || userTheme === "dark") {
+      toggleTheme(userTheme === "dark");
+    } else {
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => init());
+  document.addEventListener("astro:after-swap", () => init());
+  preloadTheme();
+</script>
