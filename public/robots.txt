@@ -1,0 +1,29 @@
+# robots.txt optimisé pour atroubat.fr
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://atroubat.fr/sitemap.xml
+
+# Performance - éviter crawl inutile
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/
+Disallow: /private/
+
+# Permettre tous les bots SEO importants
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Délai entre requêtes (éviter surcharge)
+Crawl-delay: 1
+
+# Host canonique
+Host: https://atroubat.fr
