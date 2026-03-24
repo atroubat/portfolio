@@ -1,0 +1,50 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+
+const title = "Mentions légales";
+const description = "Mentions légales du site atroubat.fr — Alexandre Troubat";
+---
+
+<PageLayout title={title} description={description}>
+  <div style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem; font-family: 'Inter', sans-serif; color: #e2e8f0;">
+    <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem; color: #f8fafc;">Mentions légales</h1>
+
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Éditeur du site</h2>
+      <p style="line-height: 1.8; color: #cbd5e1;">
+        Alexandre Troubat<br />
+        Limoges, France<br />
+        Contact : <a href="mailto:atroubat@atroubat.fr" style="color: #38bdf8; text-decoration: none;">atroubat@atroubat.fr</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Hébergement</h2>
+      <p style="line-height: 1.8; color: #cbd5e1;">
+        Ce site est hébergé par :<br />
+        <strong style="color: #f8fafc;">Netlify, Inc.</strong><br />
+        44 Montgomery Street, Suite 300<br />
+        San Francisco, CA 94104, États-Unis<br />
+        <a href="https://www.netlify.com" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: none;">www.netlify.com</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Propriété intellectuelle</h2>
+      <p style="line-height: 1.8; color: #cbd5e1;">
+        L'ensemble du contenu de ce site (textes, images, code) est la propriété d'Alexandre Troubat, sauf mention contraire. Toute reproduction sans autorisation est interdite.
+      </p>
+    </section>
+
+    <section>
+      <h2 style="font-size: 1.2rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Données personnelles</h2>
+      <p style="line-height: 1.8; color: #cbd5e1;">
+        Ce site ne collecte aucune donnée personnelle. Aucun cookie de tracking n'est utilisé.
+      </p>
+    </section>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #1e293b;">
+      <a href="/" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem;">← Retour à l'accueil</a>
+    </div>
+  </div>
+</PageLayout>
