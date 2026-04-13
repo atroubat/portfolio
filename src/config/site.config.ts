@@ -1,4 +1,3 @@
-import { SITE_URL, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION } from 'astro:env/server';
 
 export interface SiteConfig {
   name: string;
@@ -61,7 +60,7 @@ const siteConfig: SiteConfig = {
   name: 'Alexandre Troubat',
   description:
     'Site Reliability Engineer chez Equativ à Limoges. Expert DevOps, infrastructure cloud, Kubernetes, Grafana, Prometheus.',
-  url: SITE_URL || 'https://atroubat.fr',
+  url: 'https://atroubat.fr',
   ogImage: '/og-default.svg',
   author: 'Alexandre Troubat',
   email: 'atroubat@atroubat.fr',
@@ -78,8 +77,8 @@ const siteConfig: SiteConfig = {
   ],
   twitter: undefined,
   verification: {
-    google: GOOGLE_SITE_VERIFICATION,
-    bing: BING_SITE_VERIFICATION,
+    google: undefined as string | undefined,
+    bing: undefined as string | undefined,
   },
   authorImage: '/avatar.svg',
   blogImageOverlay: true,
