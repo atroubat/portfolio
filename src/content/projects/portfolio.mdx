@@ -1,0 +1,29 @@
+---
+title: "Portfolio — atroubat.fr"
+description: "Site CV professionnel hébergé sur GitHub Pages, construit avec Astro 6 et Tailwind CSS. Déployé via GitHub Actions."
+url: "https://atroubat.fr"
+repo: "https://github.com/atroubat/portfolio"
+tags: ["Astro", "Tailwind CSS", "GitHub Pages", "GitHub Actions"]
+featured: true
+order: 1
+year: 2026
+role: "Design & Développement"
+services: ["Frontend", "CI/CD", "Hébergement"]
+---
+
+## Le projet
+
+Site portfolio personnel, conçu pour présenter mon parcours SRE de manière claire et professionnelle. Migré de Netlify vers GitHub Pages en mars 2026 pour réduire les coûts (240/300 crédits Netlify consommés, 15 crédits par build).
+
+## Stack technique
+
+- **Framework** : Astro 6 — zero JS par défaut, performances Lighthouse 95+
+- **CSS** : Tailwind CSS — design system cohérent
+- **CI/CD** : GitHub Actions — déploiement automatique sur push
+- **Hébergement** : GitHub Pages — gratuit, illimité
+
+## Décisions d'architecture
+
+**GitHub Pages over Netlify.** La contrainte des 300 crédits mensuels Netlify devenait bloquante. GitHub Pages offre des builds illimités sans coût supplémentaire, avec une intégration native GitHub Actions.
+
+**Astro over Next.js.** Un portfolio est un site statique — pas besoin de SSR. Astro génère du HTML pur, sans hydratation client par défaut.

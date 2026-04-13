@@ -82,7 +82,7 @@ const {
   socialLinks = [],
   showSocial = true,
   showCopyright = true,
-  copyright = '© {year} {siteName}. Designed by <a href="https://hansmartens.dev" class="underline hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">Hans Martens</a>.',
+  copyright = '© {year} {siteName}.',
   legalLinks = [],
   hideLogo = false,
   tagline,
@@ -190,9 +190,23 @@ function getSocialIcon(platform: string): string {
           )
         )}
       </div>
-      {showCopyright && (
-        <div class="mt-[var(--space-stack-lg)] pt-[var(--space-stack-lg)] border-t border-border text-center">
-          <p class="text-sm text-foreground-muted" set:html={processedCopyright} />
+      {(showCopyright || legalLinks.length > 0) && (
+        <div class="mt-[var(--space-stack-lg)] pt-[var(--space-stack-lg)] border-t border-border flex flex-col md:flex-row justify-between items-center gap-[var(--space-stack-md)]">
+          {showCopyright && (
+            <p class="text-sm text-foreground-muted" set:html={processedCopyright} />
+          )}
+          {legalLinks.length > 0 && (
+            <div class="flex items-center gap-[var(--space-inline-lg)]">
+              {legalLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="text-sm transition-colors text-foreground-muted hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       )}
       </>

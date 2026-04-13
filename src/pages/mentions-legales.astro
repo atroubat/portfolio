@@ -1,0 +1,60 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import { Hero } from '@/components/hero';
+import siteConfig from '@/config/site.config';
+---
+
+<PageLayout
+  title={`Mentions légales — ${siteConfig.name}`}
+  description="Mentions légales du site atroubat.fr — Alexandre Troubat"
+>
+  <Hero layout="centered" size="sm">
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name="file-text" size="sm" />
+      Légal
+    </Badge>
+    <h1 slot="title">Mentions <span class="text-brand-500">légales</span></h1>
+  </Hero>
+
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-3xl px-6 prose prose-invert prose-brand" data-reveal>
+
+      <h2>Éditeur du site</h2>
+      <p>
+        Alexandre Troubat<br />
+        Limoges, Nouvelle-Aquitaine, France<br />
+        Contact : <a href="mailto:atroubat@atroubat.fr">atroubat@atroubat.fr</a>
+      </p>
+
+      <h2>Hébergement</h2>
+      <p>
+        Ce site est hébergé par :<br />
+        <strong>GitHub, Inc.</strong><br />
+        88 Colin P. Kelly Jr. Street<br />
+        San Francisco, CA 94107, États-Unis<br />
+        <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a>
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble du contenu de ce site (textes, code) est la propriété d'Alexandre Troubat, sauf mention contraire.
+        Toute reproduction sans autorisation est interdite.
+      </p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Ce site ne collecte aucune donnée personnelle. Aucun cookie de tracking n'est utilisé.
+      </p>
+
+      <div class="mt-12 pt-6 border-t border-border">
+        <a href="/" class="inline-flex items-center gap-2 text-sm text-brand-500 hover:text-brand-400 transition-colors">
+          <Icon name="arrow-left" size="sm" />
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div>
+  </section>
+</PageLayout>

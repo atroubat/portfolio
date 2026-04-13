@@ -1,0 +1,27 @@
+---
+title: "Homelab"
+description: "Infrastructure self-hosted sur Mac Mini et Ubuntu — laboratoire pour tester les technologies avant de les déployer en production."
+tags: ["Self-Hosted", "Linux", "Docker", "Terraform"]
+featured: true
+order: 3
+year: 2024
+role: "Infrastructure & Ops"
+services: ["Self-Hosting", "Automatisation", "Infrastructure"]
+---
+
+## L'infrastructure
+
+Cluster maison composé d'un Mac Mini et d'un serveur Ubuntu, géré comme une vraie infrastructure :
+
+- **IaC** : Terraform pour la configuration des services
+- **Containerisation** : Docker Compose pour les workloads légers
+- **Reverse proxy** : Traefik avec certificats Let's Encrypt automatiques
+- **Monitoring** : stack Prometheus + Grafana locale, miroir de la prod
+
+## Pourquoi un homelab ?
+
+Tester des configurations avant de les proposer en production. Expérimenter de nouveaux outils sans risque. Garder les compétences ops à jour sur des cas concrets hors contexte professionnel.
+
+## Projets hébergés
+
+Budget App (application de gestion budgétaire personnelle), services de développement, et stack d'observabilité complète pour monitorer le tout.
