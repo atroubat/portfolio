@@ -108,6 +108,16 @@ const featuredProjects = projectItems
           </div>
         </Card>
       </div>
+
+      <a href="/about" data-reveal data-reveal-delay="2" class="group flex items-center gap-4 rounded-2xl border border-border bg-background p-5 transition-colors hover:border-brand-500/50">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+          <Icon name="brand-claude" size="sm" />
+        </div>
+        <p class="text-sm text-foreground-muted leading-relaxed flex-1">
+          Et au quotidien, <span class="text-foreground font-medium">Claude</span> dans mon workflow : documentation, déploiements, et mes merge requests.
+        </p>
+        <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0" />
+      </a>
     </div>
   </section>
 
@@ -124,10 +134,10 @@ const featuredProjects = projectItems
             </h2>
           </div>
           <p class="text-lg text-foreground-muted leading-relaxed mb-4">
-            7 ans d'expérience en production à haute disponibilité{siteConfig.address?.city ? `, basé à ${siteConfig.address.city}` : ''}. Je construis et opère des systèmes distribués à l'échelle mondiale chez Equativ.
+            7 ans en production à haute disponibilité{siteConfig.address?.city ? `, basé à ${siteConfig.address.city}` : ''}. Chez Equativ, je m'occupe de systèmes distribués à l'échelle mondiale.
           </p>
           <p class="text-lg text-foreground-muted leading-relaxed mb-8">
-            Fiabilité, automatisation, FinOps — des principes appliqués à chaque décision technique.
+            Fiabilité, automatisation, FinOps : les fils rouges de mon quotidien.
           </p>
           <Button variant="outline" href="/about" class="self-start">
             En savoir plus
@@ -213,11 +223,12 @@ const featuredProjects = projectItems
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <Button size="lg" href="mailto:atroubat@atroubat.fr">
-          Me contacter
-          <Icon name="arrow-right" size="sm" />
+          <Icon name="mail" size="sm" />
+          atroubat@atroubat.fr
         </Button>
-        <Button size="lg" variant="outline" href="/about">
-          Mon parcours
+        <Button size="lg" variant="outline" href="https://www.linkedin.com/in/alexandre-troubat-834661154">
+          <Icon name="linkedin" size="sm" />
+          LinkedIn
         </Button>
       </div>
     </div>

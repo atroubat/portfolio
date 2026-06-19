@@ -147,5 +147,16 @@ const breadcrumbs = [
     )}
   </div>
 
-  <Footer slot="footer" layout="simple" background="secondary" />
+  <Footer
+    slot="footer"
+    layout="simple"
+    background="secondary"
+    hideLogo
+    nav={[]}
+    socialLinks={[
+      { platform: 'github', href: 'https://github.com/atroubat', label: 'GitHub' },
+      { platform: 'linkedin', href: 'https://www.linkedin.com/in/alexandre-troubat-834661154', label: 'LinkedIn' },
+    ]}
+    legalLinks={[{ label: 'Mentions légales', href: '/mentions-legales' }]}
+  />
 </BaseLayout>
