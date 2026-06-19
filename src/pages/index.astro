@@ -34,20 +34,6 @@ const featuredProjects = projectItems
       SRE chez <strong>Equativ</strong> depuis 2019. Infrastructure mondiale haute disponibilité, Kubernetes, observabilité Grafana/Prometheus, et automatisation GitOps.
     </p>
 
-    <Fragment slot="actions">
-      <Button size="lg" href="https://github.com/atroubat">
-        <Icon name="github" size="sm" />
-        GitHub
-      </Button>
-      <Button size="lg" href="https://www.linkedin.com/in/alexandre-troubat-834661154">
-        <Icon name="linkedin" size="sm" />
-        LinkedIn
-      </Button>
-      <Button size="lg" href="mailto:atroubat@atroubat.fr">
-        <Icon name="mail" size="sm" />
-        atroubat@atroubat.fr
-      </Button>
-    </Fragment>
   </Hero>
 
   <!-- Expertise Section -->
@@ -61,11 +47,11 @@ const featuredProjects = projectItems
           </h2>
         </div>
         <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          Les trois domaines sur lesquels je travaille au quotidien.
+          Les domaines sur lesquels je travaille au quotidien.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal data-reveal-delay="1">
+      <div class="grid gap-6 md:grid-cols-2" data-reveal data-reveal-delay="1">
         <Card hover>
           <div class="flex items-start gap-4">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
@@ -107,17 +93,21 @@ const featuredProjects = projectItems
             </div>
           </div>
         </Card>
-      </div>
 
-      <a href="/about" data-reveal data-reveal-delay="2" class="group flex items-center gap-4 rounded-2xl border border-border bg-background p-5 transition-colors hover:border-brand-500/50">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-          <Icon name="brand-claude" size="sm" />
-        </div>
-        <p class="text-sm text-foreground-muted leading-relaxed flex-1">
-          Et au quotidien, <span class="text-foreground font-medium">Claude</span> dans mon workflow : documentation, déploiements, et mes merge requests.
-        </p>
-        <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0" />
-      </a>
+        <Card hover>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+              <Icon name="brand-claude" size="sm" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-foreground">IA & Claude</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                Claude dans mon quotidien : documentation, déploiements d'applications, et mes merge requests.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
     </div>
   </section>
 
