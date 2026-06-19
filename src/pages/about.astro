@@ -39,15 +39,15 @@ const location = siteConfig.address?.city
   </Hero>
   <!-- Expérience -->
   <section class="py-[var(--space-section-md)] bg-brand-500/8 dark:bg-background-secondary">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-12 lg:grid-cols-2">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
+      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
+        <Badge variant="brand" pill>Parcours</Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          7 ans en production à<br /><span class="text-brand-500">haute disponibilité</span>
+        </h2>
+      </div>
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
         <div class="flex flex-col gap-4" data-reveal>
-          <div class="flex flex-col gap-6">
-            <Badge variant="brand" pill class="self-start">Parcours</Badge>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-              7 ans en production à<br /><span class="text-brand-500">haute disponibilité</span>
-            </h2>
-          </div>
           <p class="text-lg text-foreground-muted leading-relaxed">
             Depuis 2019 chez <strong>Equativ</strong>{location ? `, basé à ${location}` : ''}. J'opère une infrastructure mondiale — microservices Kubernetes, déploiements multi-cloud AWS/GCP, et pipelines CI/CD GitLab.
           </p>
