@@ -61,7 +61,7 @@ const siteConfig: SiteConfig = {
   description:
     "Site Reliability Engineer dans l'équipe Platform d'Equativ, à Limoges. Infrastructure mondiale, Kubernetes, observabilité et automatisation GitOps.",
   url: 'https://atroubat.fr',
-  ogImage: '/og-default.svg',
+  ogImage: '/og-default.png',
   author: 'Alexandre Troubat',
   email: 'atroubat@atroubat.fr',
   address: {
