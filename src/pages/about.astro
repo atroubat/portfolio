@@ -147,6 +147,64 @@ const location = siteConfig.address?.city
       </div>
     </div>
   </section>
+  <!-- Formation -->
+  <section class="py-[var(--space-section-md)] border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
+      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
+        <Badge variant="brand" pill>
+          <Icon name="graduation-cap" size="sm" />
+          Formation
+        </Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          Mes diplômes
+        </h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3" data-reveal data-reveal-delay="1">
+        <Card variant="elevated" hover>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+              <Icon name="graduation-cap" size="md" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2018 · Master</p>
+              <h3 class="text-base font-semibold text-foreground">Manager de Système d'Information et d'Infrastructures</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                3iL Ingénieurs — École Supérieure en Informatique, Limoges.
+              </p>
+            </div>
+          </div>
+        </Card>
+        <Card variant="elevated" hover>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+              <Icon name="graduation-cap" size="md" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2016 · Bachelor</p>
+              <h3 class="text-base font-semibold text-foreground">Concepteur de Système d'Information, option Réseau</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                3iL Ingénieurs — École Supérieure en Informatique, Limoges.
+              </p>
+            </div>
+          </div>
+        </Card>
+        <Card variant="elevated" hover>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+              <Icon name="graduation-cap" size="md" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2015 · BTS SIO</p>
+              <h3 class="text-base font-semibold text-foreground">Services Informatiques aux Organisations — spécialité SISR</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                Lycée Beaupeyrat, Limoges. Systèmes, Infrastructures et Réseaux.
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
   <!-- Valeurs -->
   <section class="py-[var(--space-section-md)] border-t border-border">
     <div class="mx-auto max-w-6xl px-6">
