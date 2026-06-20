@@ -1,0 +1,40 @@
+---
+title: "Plateforme de catégorisation d'URLs"
+description: "Plateforme de classification de contenu pour le ciblage contextuel adtech — microservices, Kafka, Kubernetes, en production à l'échelle."
+tags: ["Kafka", "Kubernetes", "Ansible", "GitLab CI", "Redis"]
+featured: true
+order: 1
+year: 2023
+client: "Equativ"
+role: "Infrastructure & Plateforme"
+services: ["Architecture", "Infrastructure", "CI/CD", "Observabilité"]
+---
+
+## Le contexte
+
+Une plateforme de **catégorisation d'URLs** au service du **ciblage contextuel** : classifier le contenu des pages pour diffuser la publicité pertinente selon le sujet réel de la page, sans dépendre des cookies.
+
+## Mon périmètre
+
+**Ownership de l'infrastructure et de la plateforme — pas de l'algorithme de catégorisation lui-même.** J'ai conçu, déployé et exploité tout ce qui fait tourner le service en production : architecture, infrastructure, chaîne CI/CD et observabilité.
+
+## L'architecture
+
+- **Microservices** pour le traitement distribué, prototypés dans un environnement Docker local
+- **Kafka** (Confluent Platform) — cluster de 3 nœuds en haute disponibilité pour le streaming
+- **Kubernetes** orchestré via **Rancher**
+- **Redis** — cluster de cache pour les résultats de catégorisation
+- **Ansible** pour le provisioning de l'infrastructure
+- **GitLab CI** pour les stages de build, tests et déploiement (sans ArgoCD)
+- **Observabilité** — Grafana, Prometheus et Alertmanager
+
+## En production
+
+- **2 environnements** : staging (6 machines) et production (10 machines)
+- **761 QPS** en entrée côté production
+- **~500 messages/s** traités par le cluster Kafka
+- Cluster Kafka en **HA** sur 3 nœuds
+
+## Ce que j'en retiens
+
+Concevoir et tenir une plateforme de streaming en production, du prototype Docker local jusqu'à un déploiement multi-environnements automatisé — avec le monitoring et l'alerting qui vont avec pour la garder fiable.
