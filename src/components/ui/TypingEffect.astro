@@ -30,8 +30,10 @@ const id = `typing-${Math.random().toString(36).slice(2, 8)}`;
 <style>
   .typing-effect {
     display: inline-block;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: break-word;
     vertical-align: bottom;
+    max-width: 100%;
   }
 
   .typing-cursor {
@@ -69,7 +71,9 @@ const id = `typing-${Math.random().toString(36).slice(2, 8)}`;
       maxWidth = Math.max(maxWidth, measurer.offsetWidth);
     }
     document.body.removeChild(measurer);
-    root.style.minWidth = maxWidth + 'px';
+    // Cap the locked width to the available space so it never overflows small screens
+    const cap = Math.max(0, (document.documentElement.clientWidth || maxWidth) - 32);
+    root.style.minWidth = Math.min(maxWidth, cap) + 'px';
 
     let wordIndex = 0;
     let charIndex = 0;
