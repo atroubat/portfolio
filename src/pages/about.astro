@@ -19,7 +19,7 @@ const location = siteConfig.address?.city
 ---
 <PageLayout
   title={`À propos — ${siteConfig.name}`}
-  description="Site Reliability Engineer chez Equativ depuis 2019. Expert infrastructure cloud, Kubernetes, observabilité et automatisation GitOps."
+  description="Site Reliability Engineer dans l'équipe Platform d'Equativ. Infrastructure cloud, Kubernetes, observabilité et automatisation GitOps."
 >
   <Hero layout="centered" size="sm">
     <Badge slot="badge" variant="brand" pill>
@@ -34,7 +34,7 @@ const location = siteConfig.address?.city
     </h1>
 
     <p slot="description">
-      SRE chez Equativ depuis 2019, basé à Limoges. Je construis et opère des systèmes distribués à l'échelle mondiale — fiabilité, automatisation et observabilité au cœur de tout.
+      SRE dans l'équipe Platform d'Equativ, à Limoges. Arrivé en 2019 (ex-DynAdmic), je suis passé de l'IT à l'infrastructure puis au SRE — systèmes distribués à l'échelle mondiale, fiabilité, automatisation et observabilité.
     </p>
   </Hero>
   <!-- Expérience -->
@@ -43,13 +43,13 @@ const location = siteConfig.address?.city
       <div class="flex flex-col items-center gap-6 text-center" data-reveal>
         <Badge variant="brand" pill>Parcours</Badge>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-          7 ans en production à<br /><span class="text-brand-500">haute disponibilité</span>
+          De l'IT au SRE,<br /><span class="text-brand-500">à grande échelle</span>
         </h2>
       </div>
-      <div class="grid gap-12 lg:grid-cols-2 items-center">
+      <div class="grid gap-12 lg:grid-cols-2 items-start">
         <div class="flex flex-col gap-4" data-reveal>
           <p class="text-lg text-foreground-muted leading-relaxed">
-            Depuis 2019 chez <strong>Equativ</strong>{location ? `, basé à ${location}` : ''}. J'opère une infrastructure mondiale — microservices Kubernetes, déploiements multi-cloud AWS/GCP, et pipelines CI/CD GitLab.
+            Arrivé chez <strong>DynAdmic</strong> (devenu <strong>Equativ</strong>) en 2019{location ? `, basé à ${location}` : ''}, je suis passé de l'IT à l'infrastructure, puis au SRE dans l'équipe Platform depuis 2024. Aujourd'hui, j'opère une infrastructure mondiale — microservices Kubernetes, déploiements multi-cloud AWS/GCP, et pipelines CI/CD GitLab.
           </p>
           <dl class="grid grid-cols-3 gap-4 mt-2">
             <div class="flex flex-col gap-1">
@@ -66,27 +66,65 @@ const location = siteConfig.address?.city
             </div>
           </dl>
         </div>
-        <div class="flex flex-col gap-4 h-full" data-reveal data-reveal-delay="1">
-          <Card variant="elevated" hover class="flex-1 flex flex-col justify-center">
+        <div class="flex flex-col gap-4" data-reveal data-reveal-delay="1">
+          <Card variant="elevated" hover>
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
                 <Icon name="briefcase" size="md" />
               </div>
               <div class="flex-1 min-w-0">
-                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2019 — Présent</p>
-                <h3 class="text-base font-semibold text-foreground">Site Reliability Engineer — Equativ</h3>
+                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">Janv. 2024 — Présent</p>
+                <h3 class="text-base font-semibold text-foreground">Site Reliability Engineer — Équipe Platform, Equativ</h3>
                 <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                  Infrastructure mondiale haute disponibilité, Kubernetes, CI/CD, monitoring Grafana/Prometheus.
+                  Gestion de flotte (Ansible/Git), GitOps Rancher/ArgoCD (~30 clusters), observabilité Prometheus/Thanos/Alertmanager, IaC Terraform sur GCP et AWS.
                 </p>
                 <div class="flex flex-wrap gap-1.5 mt-3">
                   <Badge size="sm" variant="brand">Kubernetes</Badge>
                   <Badge size="sm" variant="brand">Terraform</Badge>
-                  <Badge size="sm" variant="brand">Grafana</Badge>
+                  <Badge size="sm" variant="brand">ArgoCD</Badge>
                 </div>
               </div>
             </div>
           </Card>
-          <Card variant="elevated" hover class="flex-1 flex flex-col justify-center">
+          <Card variant="elevated" hover>
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name="server" size="md" />
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2022 — 2024</p>
+                <h3 class="text-base font-semibold text-foreground">Infrastructure — Equativ (ex-DynAdmic)</h3>
+                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                  Gestion de l'infrastructure DynAdmic pendant la transition post-rachat. Mise en place de la plateforme de catégorisation d'URLs (microservices, Kafka, Kubernetes, CI/CD, monitoring).
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  <Badge size="sm" variant="brand">Kafka</Badge>
+                  <Badge size="sm" variant="brand">Kubernetes</Badge>
+                  <Badge size="sm" variant="brand">CI/CD</Badge>
+                </div>
+              </div>
+            </div>
+          </Card>
+          <Card variant="elevated" hover>
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name="terminal" size="md" />
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2019 — 2022</p>
+                <h3 class="text-base font-semibold text-foreground">IT & Supervision — DynAdmic</h3>
+                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
+                  Supervision, maintenance, réinstallation de machines, gestion du support OVH, et support IT au quotidien.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                  <Badge size="sm" variant="brand">Supervision</Badge>
+                  <Badge size="sm" variant="brand">Linux</Badge>
+                  <Badge size="sm" variant="brand">OVH</Badge>
+                </div>
+              </div>
+            </div>
+          </Card>
+          <Card variant="elevated" hover>
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
                 <Icon name="shield" size="md" />
