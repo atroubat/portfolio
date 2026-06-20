@@ -59,7 +59,7 @@ export interface SiteConfig {
 const siteConfig: SiteConfig = {
   name: 'Alexandre Troubat',
   description:
-    'Site Reliability Engineer chez Equativ à Limoges. Expert DevOps, infrastructure cloud, Kubernetes, Grafana, Prometheus.',
+    "Site Reliability Engineer dans l'équipe Platform d'Equativ, à Limoges. Infrastructure mondiale, Kubernetes, observabilité et automatisation GitOps.",
   url: 'https://atroubat.fr',
   ogImage: '/og-default.svg',
   author: 'Alexandre Troubat',

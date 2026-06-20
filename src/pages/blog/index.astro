@@ -86,7 +86,7 @@ const getPostUrl = (postId: string) => {
       <div class="flex flex-wrap items-center justify-between gap-4" data-reveal>
         {
           featuredPosts.length > 0 && nonFeaturedPosts.length > 0 && (
-            <h2 class="font-display text-foreground text-3xl md:text-4xl font-bold">All posts</h2>
+            <h2 class="font-display text-foreground text-3xl md:text-4xl font-bold">Tous les articles</h2>
           )
         }
 
@@ -100,7 +100,7 @@ const getPostUrl = (postId: string) => {
                 id="tag-filter"
                 class="tag-select appearance-none pl-3 pr-8 py-1.5 rounded-full border border-border bg-background text-sm font-medium text-foreground cursor-pointer focus:outline-none focus:border-brand-500 transition-colors"
               >
-                <option value="all">All posts</option>
+                <option value="all">Tous les articles</option>
                 {allTags.map((tag) => (
                   <option value={tag}>{tag}</option>
                 ))}
@@ -139,7 +139,7 @@ const getPostUrl = (postId: string) => {
             <div class="bg-background mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
               <Icon name="file-text" size="lg" class="text-foreground-muted" />
             </div>
-            <p class="text-foreground-muted text-lg">No posts found</p>
+            <p class="text-foreground-muted text-lg">Aucun article pour le moment</p>
           </div>
         ) : null
       }
@@ -148,15 +148,15 @@ const getPostUrl = (postId: string) => {
         <div class="bg-background mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
           <Icon name="file-text" size="lg" class="text-foreground-muted" />
         </div>
-        <p class="text-foreground-muted text-lg">No posts found for this tag</p>
+        <p class="text-foreground-muted text-lg">Aucun article pour ce tag</p>
       </div>
     </div>
   </section>
 
   <!-- Follow CTA Section -->
   <CTA variant="default" size="md" maxWidth="lg" glow={false} data-reveal class:list={[featuredPosts.length > 0 && '!bg-background-secondary']}>
-    <h2 slot="heading" class="!text-4xl">Follow along</h2>
-    <p slot="description" class="!text-lg text-balance">Stay in the loop — new articles, thoughts, and updates.</p>
+    <h2 slot="heading" class="!text-4xl">Restons en contact</h2>
+    <p slot="description" class="!text-lg text-balance">Nouveaux articles, idées et mises à jour.</p>
 
     <div class="flex flex-wrap items-center justify-center gap-3">
       <a

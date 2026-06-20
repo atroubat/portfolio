@@ -43,7 +43,7 @@ const {
 const ogImage = image?.src || siteConfig.ogImage;
 
 const breadcrumbs = [
-  { label: 'Home', href: '/' },
+  { label: 'Accueil', href: '/' },
   { label: 'Blog', href: '/blog' },
   { label: title },
 ];
@@ -120,7 +120,7 @@ const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"
               ></path>
             </svg>
-            Back to Blog
+            Retour au blog
           </a>
 
           <!-- Share buttons -->
@@ -139,8 +139,8 @@ const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
   <!-- Follow Along -->
   <CTA variant="default" size="md" maxWidth="lg" glow={false} data-reveal class="bg-background-secondary">
-    <h2 slot="heading" class="!text-4xl">Follow along</h2>
-    <p slot="description" class="!text-lg text-balance">Stay in the loop — new articles, thoughts, and updates.</p>
+    <h2 slot="heading" class="!text-4xl">Restons en contact</h2>
+    <p slot="description" class="!text-lg text-balance">Nouveaux articles, idées et mises à jour.</p>
 
     <div class="flex flex-wrap items-center justify-center gap-3">
       <a
