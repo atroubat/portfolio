@@ -34,35 +34,6 @@ const pages = defineCollection({
 });
 
 // Authors collection
-const authors = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      bio: z.string(),
-      avatar: image().optional(),
-      social: z
-        .object({
-          twitter: z.string().optional(),
-          github: z.string().optional(),
-          linkedin: z.string().optional(),
-        })
-        .optional(),
-    }),
-});
-
-// FAQs collection (for JSON-LD FAQ schema)
-const faqs = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/faqs' }),
-  schema: z.object({
-    question: z.string(),
-    answer: z.string(),
-    category: z.string().optional(),
-    order: z.number().default(0),
-    locale: z.enum(['en', 'es', 'fr']).default('en'),
-  }),
-});
-
 // Projects collection — one MDX file per project
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
@@ -102,8 +73,6 @@ const stack = defineCollection({
 export const collections = {
   blog,
   pages,
-  authors,
-  faqs,
   stack,
   projects,
 };
