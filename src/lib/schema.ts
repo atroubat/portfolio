@@ -24,23 +24,27 @@ export function createWebsiteSchema(): WithContext<WebSite> {
 }
 
 /**
- * Create Person schema for Astro Rocket
+ * Create Person schema for the site author
  */
 export function createPersonSchema(): WithContext<Person> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Astro Rocket',
-    jobTitle: 'Web Designer & Developer',
+    name: siteConfig.author,
+    jobTitle: 'Site Reliability Engineer',
     url: siteConfig.url,
     email: siteConfig.email,
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Veghel',
-      addressRegion: 'Noord-Brabant',
-      addressCountry: 'NL',
-    },
+    ...(siteConfig.address
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: siteConfig.address.city,
+            addressRegion: siteConfig.address.state,
+            addressCountry: siteConfig.address.country,
+          },
+        }
+      : {}),
     sameAs: siteConfig.socialLinks,
   };
 }
@@ -57,14 +61,18 @@ export function createProfessionalServiceSchema(): WithContext<LocalBusiness> {
     email: siteConfig.email,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Veghel',
-      addressRegion: 'Noord-Brabant',
-      addressCountry: 'NL',
-    },
+    ...(siteConfig.address
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: siteConfig.address.city,
+            addressRegion: siteConfig.address.state,
+            addressCountry: siteConfig.address.country,
+          },
+        }
+      : {}),
     areaServed: [
-      { '@type': 'Country', name: 'Netherlands' },
+      { '@type': 'Country', name: 'France' },
       { '@type': 'Country', name: 'Worldwide' },
     ],
     sameAs: siteConfig.socialLinks,
