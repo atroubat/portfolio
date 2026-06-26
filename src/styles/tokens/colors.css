@@ -1,11 +1,11 @@
 /* =============================================================================
    Portfolio — Design Tokens - Colors
    =============================================================================
-   Color theme locked to violet. data-theme="violet" is set on <html> in
+   Color theme locked to starbucks. data-theme="starbucks" is set on <html> in
    BaseLayout.astro and never overridden at runtime.
    ============================================================================= */
 
 @import './primitives.css';
 
 /* — active theme — */
-@import '../themes/violet.css';
+@import '../themes/starbucks.css';
