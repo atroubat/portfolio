@@ -1,0 +1,195 @@
+/* =============================================================================
+   Portfolio — Theme (Starbucks)
+   =============================================================================
+   Four-tier green system over a warm cream canvas.
+   Light mode: warm cream background, deep "house green" text, Starbucks green
+   as the accent. Dark mode: deep house-green canvas, cream text, a brighter
+   green accent. Hue ≈ 162 (green), cream ≈ 88 (warm).
+   ============================================================================= */
+
+html[data-theme="starbucks"] {
+  /* -------------------------------------------------------------------------
+     Brand Scale — Starbucks green (hue 162). brand-500 ≈ #00704A
+     ------------------------------------------------------------------------- */
+  --brand-50:  oklch(96.5% 0.02  162);
+  --brand-100: oklch(92%   0.045 162);
+  --brand-200: oklch(85%   0.075 162);
+  --brand-300: oklch(72%   0.105 162);
+  --brand-400: oklch(60%   0.115 162);
+  --brand-500: oklch(50.5% 0.118 162);
+  --brand-600: oklch(44%   0.105 162);
+  --brand-700: oklch(38%   0.090 162);
+  --brand-800: oklch(31%   0.070 162);
+  --brand-900: oklch(24%   0.050 162);
+
+  /* -------------------------------------------------------------------------
+     Semantic Tokens - Light Mode (warm cream canvas)
+     ------------------------------------------------------------------------- */
+  --background:           oklch(96%   0.018 88);  /* warm cream */
+  --background-secondary: oklch(98.2% 0.012 88);
+  --background-tertiary:  oklch(93.5% 0.022 88);
+  --background-elevated:  oklch(99%   0.008 88);
+
+  --foreground:           oklch(30% 0.030 165);   /* house green — high contrast */
+  --foreground-secondary: oklch(40% 0.030 165);
+  --foreground-muted:     oklch(49% 0.026 165);
+  --foreground-subtle:    oklch(57% 0.022 165);
+
+  --border:        oklch(88% 0.020 88);
+  --border-strong: oklch(82% 0.025 88);
+  --border-subtle: oklch(92% 0.015 88);
+
+  --primary:            var(--brand-500);
+  --primary-hover:      var(--brand-600);
+  --primary-foreground: oklch(98.5% 0.012 88);
+
+  --secondary:            oklch(93% 0.020 88);
+  --secondary-hover:      oklch(89% 0.024 88);
+  --secondary-foreground: oklch(30% 0.030 165);
+
+  --accent:       var(--brand-500);
+  --accent-hover: var(--brand-600);
+  --accent-light: var(--brand-100);
+
+  --muted:            oklch(93% 0.020 88);
+  --muted-foreground: oklch(49% 0.026 165);
+
+  --card:        oklch(99% 0.008 88);
+  --card-border: oklch(89% 0.020 88);
+
+  --input-bg:     oklch(99% 0.008 88);
+  --input-border: oklch(84% 0.024 88);
+  --input-focus:  var(--brand-500);
+
+  --ring: var(--brand-500);
+
+  --destructive:            var(--error);
+  --destructive-foreground: var(--gray-0);
+
+  --gradient-start: oklch(94% 0.020 88);
+  --gradient-end:   oklch(98% 0.012 88);
+
+  --success-light: oklch(94% 0.05 145);
+  --warning-light: oklch(95% 0.05 85);
+  --error-light:   oklch(94% 0.05 25);
+
+  /* Inverted/Contrast Section — deep house green */
+  --surface-invert:           oklch(24%   0.035 165);
+  --surface-invert-secondary: oklch(28%   0.032 165);
+  --surface-invert-tertiary:  oklch(32%   0.030 165);
+  --on-invert:           oklch(96% 0.015 90);
+  --on-invert-secondary: oklch(86% 0.018 100);
+  --on-invert-muted:     oklch(76% 0.020 120);
+  --border-invert:        oklch(34% 0.030 165);
+  --border-invert-strong: oklch(42% 0.030 165);
+
+  /* -------------------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------------------- */
+  --theme-font-sans: 'Manrope Variable', 'Manrope', ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --theme-font-display: 'Outfit Variable', 'Outfit', var(--theme-font-sans);
+  --theme-font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --theme-heading-weight: 700;
+  --theme-heading-tracking: -0.02em;
+  --theme-body-leading: 1.6;
+
+  /* -------------------------------------------------------------------------
+     Shadows — green-tinted
+     ------------------------------------------------------------------------- */
+  --theme-shadow-sm: 0 1px 2px oklch(30% 0.04 165 / 0.08);
+  --theme-shadow-md: 0 4px 8px oklch(30% 0.04 165 / 0.10),
+    0 0 1px oklch(30% 0.04 165 / 0.05);
+  --theme-shadow-lg: 0 8px 16px oklch(30% 0.04 165 / 0.12),
+    0 0 1px oklch(30% 0.04 165 / 0.05);
+  --theme-shadow-xl: 0 24px 48px oklch(30% 0.04 165 / 0.18),
+    0 0 1px oklch(30% 0.04 165 / 0.05);
+
+  /* -------------------------------------------------------------------------
+     Border Radii — pill-friendly (Starbucks identity)
+     ------------------------------------------------------------------------- */
+  --theme-radius-sm: 0.375rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;
+  --theme-radius-xl: 1rem;
+  --theme-radius-full: 9999px;
+}
+
+/* -------------------------------------------------------------------------
+   Dark Mode — deep house green canvas with a brighter green accent
+   ------------------------------------------------------------------------- */
+html.dark[data-theme="starbucks"] {
+  --background:           oklch(20%   0.032 165);
+  --background-secondary: oklch(24.5% 0.032 165);
+  --background-tertiary:  oklch(29%   0.030 165);
+  --background-elevated:  oklch(24.5% 0.032 165);
+
+  /* Brighter greens so the accent pops on the dark canvas */
+  --brand-400: oklch(80% 0.140 160);
+  --brand-500: oklch(74% 0.150 160);
+  --brand-600: oklch(66% 0.150 160);
+
+  --foreground:           oklch(95% 0.015 90);
+  --foreground-secondary: oklch(85% 0.016 100);
+  --foreground-muted:     oklch(71% 0.020 140);
+  --foreground-subtle:    oklch(61% 0.020 150);
+
+  --border:        oklch(30% 0.030 165);
+  --border-strong: oklch(38% 0.030 165);
+  --border-subtle: oklch(25% 0.030 165);
+
+  --primary:            var(--brand-500);
+  --primary-hover:      var(--brand-600);
+  --primary-foreground: oklch(16% 0.030 165);
+
+  --secondary:            oklch(27% 0.030 165);
+  --secondary-hover:      oklch(32% 0.030 165);
+  --secondary-foreground: oklch(95% 0.015 90);
+
+  --accent:       var(--brand-400);
+  --accent-hover: var(--brand-500);
+  --accent-light: oklch(30% 0.060 165);
+
+  --muted:            oklch(27% 0.030 165);
+  --muted-foreground: oklch(71% 0.020 140);
+
+  --card:        oklch(24.5% 0.032 165);
+  --card-border: oklch(31% 0.030 165);
+
+  --input-bg:     oklch(24.5% 0.032 165);
+  --input-border: oklch(36% 0.030 165);
+  --input-focus:  var(--brand-400);
+
+  --ring: var(--brand-400);
+
+  --destructive:            oklch(65% 0.22 25);
+  --destructive-foreground: var(--gray-0);
+
+  --gradient-start: oklch(20%   0.032 165);
+  --gradient-end:   oklch(24.5% 0.032 165);
+
+  --success-light: oklch(28% 0.06 155);
+  --warning-light: oklch(28% 0.05 85);
+  --error-light:   oklch(28% 0.05 25);
+
+  --surface-invert:           oklch(16%   0.030 165);
+  --surface-invert-secondary: oklch(20%   0.030 165);
+  --surface-invert-tertiary:  oklch(25%   0.030 165);
+  --on-invert:           oklch(96% 0.015 90);
+  --on-invert-secondary: oklch(85% 0.016 100);
+  --on-invert-muted:     oklch(72% 0.020 140);
+  --border-invert:        oklch(28% 0.030 165);
+  --border-invert-strong: oklch(36% 0.030 165);
+
+  --theme-shadow-sm: 0 1px 3px oklch(12% 0.04 165 / 0.35);
+  --theme-shadow-md: 0 4px 12px oklch(12% 0.04 165 / 0.4),
+    0 0 1px oklch(12% 0.04 165 / 0.15);
+  --theme-shadow-lg: 0 8px 24px oklch(12% 0.04 165 / 0.45),
+    0 1px 2px oklch(50% 0.15 165 / 0.08);
+  --theme-shadow-xl: 0 24px 48px oklch(12% 0.04 165 / 0.55),
+    0 2px 4px oklch(50% 0.15 165 / 0.11);
+}
