@@ -1,0 +1,119 @@
+/* =============================================================================
+   Portfolio — Theme (Cobalt)
+   =============================================================================
+   Cool engineered near-white paper, one electric cobalt signal accent, tight
+   radii, bordered controls — instrument-panel feel. Hue ≈ 240 (cool neutral),
+   accent hue ≈ 255 (electric cobalt). Replaces the Starbucks green/cream theme.
+   ============================================================================= */
+
+html[data-theme="cobalt"] {
+  /* -------------------------------------------------------------------------
+     Brand Scale — electric cobalt (hue 255). brand-500 ≈ oklch(55% 0.19 255)
+     ------------------------------------------------------------------------- */
+  --brand-50:  oklch(97%   0.032 255);
+  --brand-100: oklch(93%   0.072 255);
+  --brand-200: oklch(86%   0.121 255);
+  --brand-300: oklch(74%   0.169 255);
+  --brand-400: oklch(63%   0.185 255);
+  --brand-500: oklch(55%   0.190 255);
+  --brand-600: oklch(47%   0.169 255);
+  --brand-700: oklch(40%   0.145 255);
+  --brand-800: oklch(32%   0.113 255);
+  --brand-900: oklch(25%   0.081 255);
+
+  /* -------------------------------------------------------------------------
+     Semantic Tokens - Light Mode (cool near-white paper)
+     ------------------------------------------------------------------------- */
+  --background:           oklch(98%   0.006 240); /* near-white paper */
+  --background-secondary: oklch(99%   0.004 240);
+  --background-tertiary:  oklch(95%   0.008 240); /* paper-2 */
+  --background-elevated:  oklch(99.5% 0.003 240);
+
+  --foreground:           oklch(18% 0.012 240); /* ink — high contrast */
+  --foreground-secondary: oklch(38% 0.010 240);
+  --foreground-muted:     oklch(48% 0.010 240);
+  --foreground-subtle:    oklch(58% 0.008 240);
+
+  --border:        oklch(88% 0.010 240); /* rule */
+  --border-strong: oklch(80% 0.014 240);
+  --border-subtle: oklch(92% 0.008 240);
+
+  --primary:            var(--brand-500);
+  --primary-hover:      var(--brand-600);
+  --primary-foreground: oklch(99% 0.004 240);
+
+  --secondary:            oklch(95% 0.008 240);
+  --secondary-hover:      oklch(91% 0.010 240);
+  --secondary-foreground: oklch(18% 0.012 240);
+
+  --accent:       var(--brand-500);
+  --accent-hover: var(--brand-600);
+  --accent-light: var(--brand-100);
+
+  --muted:            oklch(95% 0.008 240);
+  --muted-foreground: oklch(48% 0.010 240);
+
+  --card:        oklch(99.5% 0.003 240);
+  --card-border: oklch(89% 0.010 240);
+
+  --input-bg:     oklch(99.5% 0.003 240);
+  --input-border: oklch(84% 0.012 240);
+  --input-focus:  oklch(62% 0.20 255); /* --color-focus */
+
+  --ring: oklch(62% 0.20 255);
+
+  --destructive:            var(--error);
+  --destructive-foreground: var(--gray-0);
+
+  --gradient-start: oklch(96% 0.008 240);
+  --gradient-end:   oklch(99% 0.004 240);
+
+  --success-light: oklch(94% 0.05 145);
+  --warning-light: oklch(95% 0.05 85);
+  --error-light:   oklch(94% 0.05 25);
+
+  /* Inverted/Contrast Section — deep cobalt-ink */
+  --surface-invert:           oklch(16% 0.014 240);
+  --surface-invert-secondary: oklch(20% 0.013 240);
+  --surface-invert-tertiary:  oklch(24% 0.012 240);
+  --on-invert:           oklch(96% 0.006 240);
+  --on-invert-secondary: oklch(86% 0.008 240);
+  --on-invert-muted:     oklch(76% 0.009 240);
+  --border-invert:        oklch(30% 0.014 240);
+  --border-invert-strong: oklch(38% 0.014 240);
+
+  /* -------------------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------------------- */
+  --theme-font-sans: 'Onest Variable', 'Onest', ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --theme-font-display: 'Space Grotesk Variable', 'Space Grotesk', var(--theme-font-sans);
+  --theme-font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace,
+    SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --theme-heading-weight: 700;
+  --theme-heading-tracking: -0.02em;
+  --theme-body-leading: 1.6;
+
+  /* -------------------------------------------------------------------------
+     Shadows — cobalt-tinted
+     ------------------------------------------------------------------------- */
+  --theme-shadow-sm: 0 1px 2px oklch(18% 0.03 240 / 0.08);
+  --theme-shadow-md: 0 4px 8px oklch(18% 0.03 240 / 0.10),
+    0 0 1px oklch(18% 0.03 240 / 0.05);
+  --theme-shadow-lg: 0 8px 16px oklch(18% 0.03 240 / 0.12),
+    0 0 1px oklch(18% 0.03 240 / 0.05);
+  --theme-shadow-xl: 0 24px 48px oklch(18% 0.03 240 / 0.18),
+    0 0 1px oklch(18% 0.03 240 / 0.05);
+
+  /* -------------------------------------------------------------------------
+     Border Radii — tight, instrument-panel (Cobalt identity)
+     ------------------------------------------------------------------------- */
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.375rem;
+  --theme-radius-lg: 0.5rem;
+  --theme-radius-xl: 0.625rem;
+  --theme-radius-full: 9999px;
+}
