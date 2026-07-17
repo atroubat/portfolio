@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 export const cardVariants = cva(
-  ['rounded-xl', 'transition-all duration-200 ease-out'],
+  ['rounded-xl', 'transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out'],
   {
     variants: {
       variant: {

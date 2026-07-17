@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 export const toastVariants = cva(
   [
     'pointer-events-auto relative flex items-start gap-3 overflow-hidden rounded-lg border p-4 shadow-lg',
-    'transition-all duration-300 ease-out',
+    'transition-[opacity,transform] duration-300 ease-out',
   ],
   {
     variants: {

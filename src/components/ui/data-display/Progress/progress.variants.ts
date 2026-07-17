@@ -17,7 +17,7 @@ export const progressTrackVariants = cva(
 );
 
 export const progressBarVariants = cva(
-  'h-full rounded-full transition-all duration-500 ease-out',
+  'h-full rounded-full transition-[width,background-color] duration-500 ease-out',
   {
     variants: {
       variant: {
