@@ -1,4 +1,5 @@
 ---
+/* Hallmark · genre: modern-minimal · macrostructure: Split Studio · theme: cobalt · enrichment: light · nav: N1b · footer: Ft2 */
 /**
  * About page
  * URL: /about
@@ -6,8 +7,6 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
-import Card from '@/components/ui/data-display/Card/Card.astro';
-import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import TypingEffect from '@/components/ui/TypingEffect.astro';
 import TechStack from '@/components/landing/TechStack.astro';
@@ -16,6 +15,77 @@ import siteConfig from '@/config/site.config';
 const location = siteConfig.address?.city
   ? `${siteConfig.address.city}${siteConfig.address.country ? `, ${siteConfig.address.country}` : ''}`
   : null;
+
+const experience = [
+  {
+    icon: 'briefcase',
+    period: 'Janv. 2024 — Présent',
+    title: 'Site Reliability Engineer — Équipe Platform, Equativ',
+    description:
+      "Industrialisation et fiabilisation de l'infrastructure : gestion de flotte avec Ansible, déploiements Kubernetes en GitOps (Rancher, ArgoCD), observabilité Prometheus/Thanos/Alertmanager et provisioning multi-cloud en Terraform (GCP, AWS).",
+    tags: ['Kubernetes', 'Terraform', 'ArgoCD'],
+  },
+  {
+    icon: 'server',
+    period: '2022 — 2024',
+    title: 'Ingénieur Système — Equativ (ex-DynAdmic)',
+    description:
+      "Gestion de l'infrastructure DynAdmic (AWS, OVH, LeaseWeb) pendant la transition post-rachat. Mise en place de la plateforme de catégorisation d'URLs (microservices, Kafka, Kubernetes, CI/CD, monitoring).",
+    tags: ['Kafka', 'Kubernetes', 'CI/CD'],
+  },
+  {
+    icon: 'terminal',
+    period: '2019 — 2022',
+    title: 'Ingénieur Système Junior — DynAdmic',
+    description:
+      "Gestion d'un parc d'environ 400 serveurs (supervision Zabbix, maintenance, réinstallation, support OVH) et premiers pas en automatisation Ansible, ainsi que support IT et gestion du parc informatique de plus de 100 collaborateurs répartis dans le monde.",
+    tags: ['Linux', 'Ansible', 'Zabbix'],
+  },
+  {
+    icon: 'shield',
+    period: '2017 — 2019',
+    title: 'Administrateur Système & Réseau — Célios Conseils',
+    description: "Plan de sécurité informatique du groupe, gestion d'incidents, supervision des opérations.",
+    tags: ['Sécurité', 'Réseau', 'Linux'],
+  },
+];
+
+const education = [
+  {
+    period: '2018 · Master',
+    title: "Manager de Système d'Information et d'Infrastructures",
+    description: '3iL Ingénieurs — École Supérieure en Informatique, Limoges.',
+  },
+  {
+    period: '2016 · Bachelor',
+    title: "Concepteur de Système d'Information, option Réseau",
+    description: '3iL Ingénieurs — École Supérieure en Informatique, Limoges.',
+  },
+  {
+    period: '2015 · BTS SIO',
+    title: 'Services Informatiques aux Organisations — spécialité SISR',
+    description: 'Lycée Beaupeyrat, Limoges. Systèmes, Infrastructures et Réseaux.',
+  },
+];
+
+const values = [
+  {
+    icon: 'shield-check',
+    title: 'Reliability First',
+    description: 'La fiabilité se mesure : SLO, SLI et error budgets pour des systèmes stables en production.',
+  },
+  {
+    icon: 'git-branch',
+    title: 'GitOps & Automatisation',
+    description:
+      'Tout est code, tout est versionné. Infrastructure as Code, pipelines CI/CD, déploiements reproductibles.',
+  },
+  {
+    icon: 'trending-down',
+    title: 'FinOps',
+    description: "Garder les coûts cloud sous contrôle et les prendre en compte dans les choix d'infrastructure.",
+  },
+];
 ---
 <PageLayout
   title="À propos"
@@ -37,21 +107,19 @@ const location = siteConfig.address?.city
       Ingénieur systèmes & réseaux depuis 2019 (ex-DynAdmic), aujourd'hui SRE dans l'équipe Platform d'Equativ, à Limoges — fiabilité, automatisation et observabilité de systèmes distribués à l'échelle mondiale.
     </p>
   </Hero>
-  <!-- Expérience -->
-  <section class="py-[var(--space-section-md)] bg-brand-500/8 dark:bg-background-secondary">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
-      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
-        <Badge variant="brand" pill>Parcours</Badge>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+
+  <!-- Parcours -->
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="grid gap-6 lg:grid-cols-12" data-reveal>
+        <h2 class="lg:col-span-4 font-display text-3xl md:text-4xl font-bold text-foreground">
           Ingénieur systèmes,<br /><span class="text-brand-500">devenu SRE</span>
         </h2>
-      </div>
-      <div class="grid gap-12 lg:grid-cols-2 items-start">
-        <div class="flex flex-col gap-4" data-reveal>
+        <div class="lg:col-span-7 lg:col-start-6 flex flex-col gap-6">
           <p class="text-lg text-foreground-muted leading-relaxed">
             Ingénieur systèmes & réseaux de formation. Arrivé chez <strong>DynAdmic</strong> (devenu <strong>Equativ</strong>) en 2019{location ? `, basé à ${location}` : ''}, j'ai vu mon poste se recentrer progressivement sur l'infrastructure avec la croissance de l'entreprise, jusqu'à rejoindre l'équipe Platform comme SRE en 2024. Aujourd'hui, j'opère une infrastructure mondiale — microservices Kubernetes, déploiements multi-cloud AWS/GCP et pipelines CI/CD GitLab.
           </p>
-          <dl class="grid grid-cols-3 gap-4 mt-2">
+          <dl class="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-1">
               <dt class="text-2xl md:text-3xl font-bold text-brand-500">2,5 M</dt>
               <dd class="text-xs text-foreground-muted leading-snug">requêtes/s sur EU, NA et APAC</dd>
@@ -66,205 +134,87 @@ const location = siteConfig.address?.city
             </div>
           </dl>
         </div>
-        <div class="flex flex-col gap-4" data-reveal data-reveal-delay="1">
-          <Card variant="elevated" hover>
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name="briefcase" size="md" />
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">Janv. 2024 — Présent</p>
-                <h3 class="text-base font-semibold text-foreground">Site Reliability Engineer — Équipe Platform, Equativ</h3>
-                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                  Industrialisation et fiabilisation de l'infrastructure : gestion de flotte avec Ansible, déploiements Kubernetes en GitOps (Rancher, ArgoCD), observabilité Prometheus/Thanos/Alertmanager et provisioning multi-cloud en Terraform (GCP, AWS).
-                </p>
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  <Badge size="sm" variant="brand">Kubernetes</Badge>
-                  <Badge size="sm" variant="brand">Terraform</Badge>
-                  <Badge size="sm" variant="brand">ArgoCD</Badge>
-                </div>
+      </div>
+
+      <div class="flex flex-col" data-reveal data-reveal-delay="1">
+        {experience.map((item, i) => (
+          <div class={`flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t ${i === experience.length - 1 ? 'border-b' : ''} border-border`}>
+            <div class="flex items-start gap-3 sm:w-72 shrink-0">
+              <Icon name={item.icon} size="sm" class="text-brand-500 shrink-0 mt-0.5" />
+              <div>
+                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">{item.period}</p>
+                <h3 class="text-base font-semibold text-foreground">{item.title}</h3>
               </div>
             </div>
-          </Card>
-          <Card variant="elevated" hover>
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name="server" size="md" />
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2022 — 2024</p>
-                <h3 class="text-base font-semibold text-foreground">Ingénieur Système — Equativ (ex-DynAdmic)</h3>
-                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                  Gestion de l'infrastructure DynAdmic (AWS, OVH, LeaseWeb) pendant la transition post-rachat. Mise en place de la plateforme de catégorisation d'URLs (microservices, Kafka, Kubernetes, CI/CD, monitoring).
-                </p>
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  <Badge size="sm" variant="brand">Kafka</Badge>
-                  <Badge size="sm" variant="brand">Kubernetes</Badge>
-                  <Badge size="sm" variant="brand">CI/CD</Badge>
-                </div>
+            <div class="flex-1 flex flex-col gap-3">
+              <p class="text-sm text-foreground-muted leading-relaxed">{item.description}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {item.tags.map((tag) => (
+                  <Badge size="sm" variant="brand">{tag}</Badge>
+                ))}
               </div>
             </div>
-          </Card>
-          <Card variant="elevated" hover>
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name="terminal" size="md" />
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2019 — 2022</p>
-                <h3 class="text-base font-semibold text-foreground">Ingénieur Système Junior — DynAdmic</h3>
-                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                  Gestion d'un parc d'environ 400 serveurs (supervision Zabbix, maintenance, réinstallation, support OVH) et premiers pas en automatisation Ansible, ainsi que support IT et gestion du parc informatique de plus de 100 collaborateurs répartis dans le monde.
-                </p>
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  <Badge size="sm" variant="brand">Linux</Badge>
-                  <Badge size="sm" variant="brand">Ansible</Badge>
-                  <Badge size="sm" variant="brand">Zabbix</Badge>
-                </div>
-              </div>
-            </div>
-          </Card>
-          <Card variant="elevated" hover>
-            <div class="flex items-start gap-4">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-                <Icon name="shield" size="md" />
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2017 — 2019</p>
-                <h3 class="text-base font-semibold text-foreground">Administrateur Système & Réseau — Célios Conseils</h3>
-                <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                  Plan de sécurité informatique du groupe, gestion d'incidents, supervision des opérations.
-                </p>
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  <Badge size="sm" variant="brand">Sécurité</Badge>
-                  <Badge size="sm" variant="brand">Réseau</Badge>
-                  <Badge size="sm" variant="brand">Linux</Badge>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
+
   <!-- Formation -->
   <section class="py-[var(--space-section-md)] border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
-      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
-        <Badge variant="brand" pill>
-          <Icon name="graduation-cap" size="sm" />
-          Formation
-        </Badge>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="grid gap-6 lg:grid-cols-12" data-reveal>
+        <h2 class="lg:col-span-4 font-display text-3xl md:text-4xl font-bold text-foreground">
           Mes diplômes
         </h2>
+        <p class="lg:col-span-7 lg:col-start-6 text-lg text-foreground-muted">
+          Formation initiale en systèmes, réseaux et infrastructures.
+        </p>
       </div>
-      <div class="grid gap-6 md:grid-cols-3" data-reveal data-reveal-delay="1">
-        <Card variant="elevated" hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="graduation-cap" size="md" />
+      <div class="flex flex-col" data-reveal data-reveal-delay="1">
+        {education.map((item, i) => (
+          <div class={`flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t ${i === education.length - 1 ? 'border-b' : ''} border-border`}>
+            <div class="flex items-center gap-3 sm:w-64 shrink-0">
+              <Icon name="graduation-cap" size="sm" class="text-brand-500 shrink-0" />
+              <p class="text-xs font-bold tracking-wide text-foreground-muted">{item.period}</p>
             </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2018 · Master</p>
-              <h3 class="text-base font-semibold text-foreground">Manager de Système d'Information et d'Infrastructures</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                3iL Ingénieurs — École Supérieure en Informatique, Limoges.
-              </p>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-foreground">{item.title}</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">{item.description}</p>
             </div>
           </div>
-        </Card>
-        <Card variant="elevated" hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="graduation-cap" size="md" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2016 · Bachelor</p>
-              <h3 class="text-base font-semibold text-foreground">Concepteur de Système d'Information, option Réseau</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                3iL Ingénieurs — École Supérieure en Informatique, Limoges.
-              </p>
-            </div>
-          </div>
-        </Card>
-        <Card variant="elevated" hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="graduation-cap" size="md" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-xs font-bold tracking-wide text-foreground-muted mb-1">2015 · BTS SIO</p>
-              <h3 class="text-base font-semibold text-foreground">Services Informatiques aux Organisations — spécialité SISR</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Lycée Beaupeyrat, Limoges. Systèmes, Infrastructures et Réseaux.
-              </p>
-            </div>
-          </div>
-        </Card>
+        ))}
       </div>
     </div>
   </section>
+
   <!-- Valeurs -->
   <section class="py-[var(--space-section-md)] border-t border-border">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="mb-8 text-center flex flex-col items-center gap-4" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>Principes</Badge>
-          <h2 class="font-display text-4xl font-bold text-foreground">
-            Mon approche
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="grid gap-6 lg:grid-cols-12" data-reveal>
+        <h2 class="lg:col-span-4 font-display text-3xl md:text-4xl font-bold text-foreground">
+          Mon approche
+        </h2>
+        <p class="lg:col-span-7 lg:col-start-6 text-lg text-foreground-muted">
           Les principes qui guident mon travail au quotidien.
         </p>
       </div>
-      <div class="grid gap-8 md:grid-cols-3" data-reveal data-reveal-delay="1">
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="shield-check" size="md" />
+      <div class="flex flex-col" data-reveal data-reveal-delay="1">
+        {values.map((item, i) => (
+          <div class={`flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t ${i === values.length - 1 ? 'border-b' : ''} border-border`}>
+            <div class="flex items-center gap-3 sm:w-64 shrink-0">
+              <Icon name={item.icon} size="sm" class="text-brand-500 shrink-0" />
+              <h3 class="text-base font-semibold text-foreground">{item.title}</h3>
             </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Reliability First</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                La fiabilité se mesure : SLO, SLI et error budgets pour des systèmes stables en production.
-              </p>
-            </div>
+            <p class="flex-1 text-sm text-foreground-muted leading-relaxed">{item.description}</p>
           </div>
-        </Card>
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="git-branch" size="md" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">GitOps & Automatisation</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Tout est code, tout est versionné. Infrastructure as Code, pipelines CI/CD, déploiements reproductibles.
-              </p>
-            </div>
-          </div>
-        </Card>
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="trending-down" size="md" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">FinOps</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Garder les coûts cloud sous contrôle et les prendre en compte dans les choix d'infrastructure.
-              </p>
-            </div>
-          </div>
-        </Card>
+        ))}
       </div>
     </div>
   </section>
+
   <!-- My Stack -->
   <TechStack
-    badge="Stack & Outils"
     title="Mon Stack"
     description="Les outils avec lesquels j'interviens au quotidien."
   />

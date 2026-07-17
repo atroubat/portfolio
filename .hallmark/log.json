@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-07-17",
+    "scope": "app",
+    "verb": "redesign",
+    "genre": "modern-minimal",
+    "theme": "cobalt",
+    "replaces_theme": "starbucks",
+    "typography": {
+      "display": "Space Grotesk Variable",
+      "body": "Onest Variable (substituted for General Sans — no self-hostable npm/fontsource package)",
+      "mono": "JetBrains Mono Variable"
+    },
+    "nav": "N1b — SaaS three-section",
+    "footer": "Ft2 — inline single line",
+    "macrostructures": {
+      "Split Studio": ["index", "about"],
+      "Portfolio Grid": ["blog/index", "projects/index"],
+      "Long Document": ["blog/[...slug]", "projects/[slug]", "mentions-legales"],
+      "standalone (exempt)": ["404"]
+    },
+    "design_md": "design.md",
+    "notes": "First formal Hallmark run on this project. design.md is the locked source of truth for all future page edits."
+  }
+]
