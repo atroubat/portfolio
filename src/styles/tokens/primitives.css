@@ -55,4 +55,13 @@
   --info: oklch(59.5% 0.19 260);
   --info-light: oklch(94% 0.05 260);
   --info-foreground: oklch(40% 0.15 260); /* WCAG AA compliant on info-light */
+
+  /* -------------------------------------------------------------------------
+     Z-index scale - named stacking layers
+     ------------------------------------------------------------------------- */
+  --z-dropdown: 30;
+  --z-sticky: 40;
+  --z-fixed: 50;
+  --z-modal: 60;
+  --z-tooltip: 70;
 }
