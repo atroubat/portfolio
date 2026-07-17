@@ -16,7 +16,7 @@ const featuredProjects = projectItems
 
 <LandingLayout
   title="Site Reliability Engineer · Limoges"
-  description="Site Reliability Engineer dans l'équipe Platform d'Equativ, à Limoges. Infrastructure mondiale, Kubernetes, observabilité et automatisation GitOps."
+  description="Site Reliability Engineer dans l’équipe Platform d’Equativ, à Limoges. Infrastructure mondiale, Kubernetes, observabilité et automatisation GitOps."
   image="/og-default.png"
   includePersonSchema={true}
   includeProfessionalServiceSchema={true}
@@ -31,100 +31,78 @@ const featuredProjects = projectItems
     </h1>
 
     <p slot="description">
-      SRE dans l'équipe Platform d'<strong>Equativ</strong>, à Limoges. Je conçois, déploie et fiabilise une infrastructure mondiale à haute disponibilité.
+      SRE dans l’équipe Platform d’<strong>Equativ</strong>, à Limoges. Je conçois, déploie et fiabilise une infrastructure mondiale à haute disponibilité.
     </p>
 
   </Hero>
 
   <!-- Expertise Section -->
   <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>Expertise</Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            Domaines d'expertise
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          Les domaines sur lesquels j'interviens au quotidien.
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="grid gap-6 lg:grid-cols-12" data-reveal>
+        <h2 class="lg:col-span-4 font-display text-3xl md:text-4xl font-bold text-foreground">
+          Domaines d’expertise
+        </h2>
+        <p class="lg:col-span-7 lg:col-start-6 text-lg text-foreground-muted">
+          Les domaines sur lesquels j’interviens au quotidien.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2" data-reveal data-reveal-delay="1">
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="server" size="sm" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Infrastructure & Cloud</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Kubernetes (EKS, GKE, on-prem), Terraform, Ansible. Infrastructure as Code, GitOps avec ArgoCD, sur AWS et GCP.
-              </p>
-            </div>
+      <div class="flex flex-col" data-reveal data-reveal-delay="1">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t border-border">
+          <div class="flex items-center gap-3 sm:w-64 shrink-0">
+            <Icon name="server" size="sm" class="text-brand-500 shrink-0" />
+            <h3 class="text-base font-semibold text-foreground">Infrastructure & Cloud</h3>
           </div>
-        </Card>
+          <p class="text-sm text-foreground-muted leading-relaxed">
+            Kubernetes (EKS, GKE, on-prem), Terraform, Ansible. Infrastructure as Code, GitOps avec ArgoCD, sur AWS et GCP.
+          </p>
+        </div>
 
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="activity" size="sm" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Observabilité</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Prometheus, Thanos, Grafana, Loki, Alertmanager. SLO/SLI, error budgets et dashboards opérationnels.
-              </p>
-            </div>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t border-border">
+          <div class="flex items-center gap-3 sm:w-64 shrink-0">
+            <Icon name="activity" size="sm" class="text-brand-500 shrink-0" />
+            <h3 class="text-base font-semibold text-foreground">Observabilité</h3>
           </div>
-        </Card>
+          <p class="text-sm text-foreground-muted leading-relaxed">
+            Prometheus, Thanos, Grafana, Loki, Alertmanager. SLO/SLI, error budgets et dashboards opérationnels.
+          </p>
+        </div>
 
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="zap" size="sm" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">Automatisation & CI/CD</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Pipelines GitLab CI, déploiements automatisés, validation technique des mises en production.
-              </p>
-            </div>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t border-border">
+          <div class="flex items-center gap-3 sm:w-64 shrink-0">
+            <Icon name="zap" size="sm" class="text-brand-500 shrink-0" />
+            <h3 class="text-base font-semibold text-foreground">Automatisation & CI/CD</h3>
           </div>
-        </Card>
+          <p class="text-sm text-foreground-muted leading-relaxed">
+            Pipelines GitLab CI, déploiements automatisés, validation technique des mises en production.
+          </p>
+        </div>
 
-        <Card hover>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
-              <Icon name="brand-claude" size="sm" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-foreground">IA & Automatisation</h3>
-              <p class="text-sm text-foreground-muted leading-relaxed mt-1.5">
-                Claude Code (IA agentique) : investigation d'incidents, automatisation GitOps et documentation technique, sous revue humaine.
-              </p>
-            </div>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 py-6 border-t border-b border-border">
+          <div class="flex items-center gap-3 sm:w-64 shrink-0">
+            <Icon name="brand-claude" size="sm" class="text-brand-500 shrink-0" />
+            <h3 class="text-base font-semibold text-foreground">IA & Automatisation</h3>
           </div>
-        </Card>
+          <p class="text-sm text-foreground-muted leading-relaxed">
+            Claude Code (IA agentique) : investigation d’incidents, automatisation GitOps et documentation technique, sous revue humaine.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- About Teaser -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+  <section class="relative z-10 py-[var(--space-section-xl)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
-      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
-        <Badge variant="brand" pill>À propos</Badge>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-          SRE de métier,<br />
-          <span class="text-brand-500">infrastructure par passion.</span>
-        </h2>
-      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground" data-reveal>
+        SRE de métier,<br />
+        <span class="text-brand-500">infrastructure par passion.</span>
+      </h2>
       <div class="grid gap-12 lg:grid-cols-2 items-center">
         <div class="flex flex-col" data-reveal>
           <p class="text-lg text-foreground-muted leading-relaxed mb-4">
-            Chez Equativ (ex-DynAdmic) depuis 2019{siteConfig.address?.city ? `, basé à ${siteConfig.address.city}` : ''}, je suis SRE dans l'équipe Platform depuis 2024 et j'opère des systèmes distribués à l'échelle mondiale.
+            Chez Equativ (ex-DynAdmic) depuis 2019{siteConfig.address?.city ? `, basé à ${siteConfig.address.city}` : ''}, je suis SRE dans l’équipe Platform depuis 2024 et j’opère des systèmes distribués à l’échelle mondiale.
           </p>
           <p class="text-lg text-foreground-muted leading-relaxed mb-8">
             Mes trois priorités au quotidien : fiabilité, automatisation et maîtrise des coûts.
@@ -133,41 +111,38 @@ const featuredProjects = projectItems
             En savoir plus
           </Button>
         </div>
-        <Card variant="elevated" padding="lg" class="h-full flex flex-col" data-reveal data-reveal-delay="1">
-          <p class="text-sm text-foreground mb-5 text-center">En quelques chiffres.</p>
-          <div class="grid grid-cols-2 gap-3 flex-1 auto-rows-fr">
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="history" class="w-10 h-10 text-brand-500" />
+        <div class="flex flex-col" data-reveal data-reveal-delay="1">
+          <p class="text-sm text-foreground mb-5">En quelques chiffres.</p>
+          <div class="grid grid-cols-2 gap-x-6 gap-y-5">
+            <div class="flex items-center gap-3">
+              <Icon name="history" class="w-6 h-6 text-brand-500 shrink-0" />
               <p class="text-sm font-semibold text-foreground">Bientôt 3 ans en SRE</p>
             </div>
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="globe" class="w-10 h-10 text-brand-500" />
+            <div class="flex items-center gap-3">
+              <Icon name="globe" class="w-6 h-6 text-brand-500 shrink-0" />
               <p class="text-sm font-semibold text-foreground">Infrastructure mondiale</p>
             </div>
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="shield" class="w-10 h-10 text-brand-500" />
+            <div class="flex items-center gap-3">
+              <Icon name="shield" class="w-6 h-6 text-brand-500 shrink-0" />
               <p class="text-sm font-semibold text-foreground">Haute disponibilité</p>
             </div>
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="map-pin" class="w-10 h-10 text-brand-500" />
+            <div class="flex items-center gap-3">
+              <Icon name="map-pin" class="w-6 h-6 text-brand-500 shrink-0" />
               <p class="text-sm font-semibold text-foreground">Limoges, France</p>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Portfolio -->
-  <section id="work" class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section id="work" class="relative z-10 py-[var(--space-section-lg)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>Projets</Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            Réalisations
-          </h2>
-        </div>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          Réalisations
+        </h2>
         <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
           Une sélection de projets, personnels comme professionnels.
         </p>
@@ -203,7 +178,7 @@ const featuredProjects = projectItems
   </section>
 
   <!-- CTA -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background">
+  <section class="relative z-10 py-[var(--space-section-sm)] bg-background">
     <div class="mx-auto max-w-2xl px-6 text-center" data-reveal>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         Disponible pour un échange.
