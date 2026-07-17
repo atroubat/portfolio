@@ -62,7 +62,8 @@ const breadcrumbs = [
     shape="bar"
     variant="solid"
     size="lg"
-    showCta={false}
+    showCta={true}
+    cta={{ label: 'Me contacter', href: 'mailto:atroubat@atroubat.fr' }}
     showScrollProgress
   />
 
@@ -149,9 +150,8 @@ const breadcrumbs = [
 
   <Footer
     slot="footer"
-    layout="simple"
+    layout="inline"
     background="secondary"
-    hideLogo
     nav={[]}
     socialLinks={[
       { platform: 'github', href: 'https://github.com/atroubat', label: 'GitHub' },

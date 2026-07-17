@@ -8,6 +8,8 @@
  * - columns: Multi-column layout with link groups
  * - minimal: Just copyright
  * - stacked: Vertically stacked logo, nav, copyright
+ * - inline: Ft2 — one hairline-ruled line of wordmark, tagline, copyright,
+ *   legal links and socials, middot-separated, no columns
  *
  * Features:
  * - Dynamic navigation from nav.config.ts (default) or custom nav prop
@@ -48,7 +50,7 @@ export interface LegalLink {
 
 interface Props extends HTMLAttributes<'footer'> {
   /** Layout style */
-  layout?: 'simple' | 'columns' | 'minimal' | 'stacked';
+  layout?: 'simple' | 'columns' | 'minimal' | 'stacked' | 'inline';
   /** Number of columns (only for columns layout) */
   columns?: 2 | 3 | 4;
   /** Background variant */
@@ -210,6 +212,58 @@ function getSocialIcon(platform: string): string {
         </div>
       )}
       </>
+    )}
+
+    {layout === 'inline' && (
+      <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 border-t border-border pt-[var(--space-stack-md)] text-sm text-foreground-muted">
+        {[
+          !hideLogo && (
+            <a href="/" class="inline-flex items-center gap-1.5 font-display font-bold text-foreground">
+              <Logo size="sm" />
+              {siteConfig.name}
+            </a>
+          ),
+          (hasTaglineSlot || tagline) && <span>{hasTaglineSlot ? <slot name="tagline" /> : tagline}</span>,
+          showCopyright && <span set:html={processedCopyright} />,
+          ...legalLinks.map((link) => (
+            <a href={link.href} class="transition-colors hover:text-foreground">
+              {link.label}
+            </a>
+          )),
+        ]
+          .filter(Boolean)
+          .map((node, i) => (
+            <>
+              {i > 0 && (
+                <span aria-hidden="true" class="text-foreground-subtle">
+                  ·
+                </span>
+              )}
+              {node}
+            </>
+          ))}
+
+        {showSocial && socialLinks.length > 0 && (
+          <>
+            <span aria-hidden="true" class="text-foreground-subtle">
+              ·
+            </span>
+            <div class="flex items-center gap-[var(--space-stack-sm)]">
+              {socialLinks.map((social) => (
+                <a
+                  href={social.href}
+                  class="transition-colors hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label || `Follow us on ${social.platform}`}
+                >
+                  <Icon name={getSocialIcon(social.platform)} size="sm" />
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     )}
 
     {layout === 'columns' && (

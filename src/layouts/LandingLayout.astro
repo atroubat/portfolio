@@ -52,12 +52,11 @@ const isHomePage = Astro.url.pathname === '/';
   <Header
     slot="header"
     position="fixed"
-    shape="floating"
-    variant="default"
-    colorScheme="default"
+    shape="bar"
+    variant="solid"
     size="lg"
-    showCta={false}
-    cta={{ label: 'Get in touch', href: '/contact' }}
+    showCta={true}
+    cta={{ label: 'Me contacter', href: 'mailto:atroubat@atroubat.fr' }}
     showScrollProgress={isHomePage}
     scrollProgressPosition="top"
   />
@@ -66,9 +65,8 @@ const isHomePage = Astro.url.pathname === '/';
 
   <Footer
     slot="footer"
-    layout="simple"
+    layout="inline"
     background="secondary"
-    hideLogo
     nav={[]}
     socialLinks={[
       { platform: 'github', href: 'https://github.com/atroubat', label: 'GitHub' },
