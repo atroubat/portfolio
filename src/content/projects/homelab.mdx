@@ -1,7 +1,7 @@
 ---
 title: "Homelab"
-description: "Un labo perso sur Mac Mini pour héberger mes propres services, expérimenter avec un agent IA local et bidouiller des technos."
-tags: ["Self-Hosted", "IA locale", "Docker", "Terraform"]
+description: "Un homelab sur Mac Mini qui héberge Aplomb, Preuve, un agent IA local et ma stack d'observabilité."
+tags: ["Self-Hosted", "IA locale", "Docker", "Traefik"]
 featured: true
 order: 3
 year: 2024
@@ -13,7 +13,6 @@ services: ["Self-Hosting", "Automatisation", "Infrastructure"]
 
 Un petit labo maison installé sur un Mac Mini, que je fais tourner pour le plaisir :
 
-- **IaC** : Terraform pour configurer les services
 - **Containerisation** : Docker Compose pour les workloads légers
 - **Reverse proxy** : Traefik avec certificats Let's Encrypt automatiques
 - **Monitoring** : une stack Prometheus + Grafana locale pour garder un œil sur tout ça
@@ -23,6 +22,11 @@ Un petit labo maison installé sur un Mac Mini, que je fais tourner pour le plai
 
 Pour le plaisir, surtout. Héberger moi-même mes propres services, bidouiller de nouveaux outils, et garder la main sur des cas concrets en dehors du boulot. Rien de tout ça n'est destiné à la production — c'est un terrain de jeu.
 
-## Projets hébergés
+## Services hébergés
 
-Budget App (une appli de gestion de budget perso), un agent IA local, quelques services de dev et la stack d'observabilité qui surveille l'ensemble.
+- **[Aplomb](/projects/aplomb)** : mon application de gestion de budget, avec une API Fastify et une base SQLite persistante
+- **[Preuve](/projects/preuve)** : mon coffre de factures, de garanties et de documents de la maison
+- **Agent IA local** : un environnement d'expérimentation exécuté directement sur le homelab
+- **Observabilité** : Prometheus et Grafana pour surveiller les services et l'infrastructure
+
+Les applications sont déployées avec Docker Compose et exposées uniquement sur mon réseau privé derrière Traefik.

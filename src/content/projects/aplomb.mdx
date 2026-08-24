@@ -1,0 +1,45 @@
+---
+title: "Aplomb"
+description: "Application auto-hébergée de gestion de budget pour suivre les revenus, les charges, l'épargne et la répartition des dépenses du foyer."
+image: "../../assets/projects/aplomb-dashboard.png"
+imageAlt: "Tableau de bord Aplomb en mode démonstration avec des données budgétaires fictives"
+tags: ["React", "Fastify", "SQLite", "Docker"]
+featured: true
+order: 4
+year: 2026
+role: "Conception produit & Pilotage IA"
+services: ["Frontend", "Backend", "Data", "Self-Hosting"]
+---
+
+{/* Hallmark · pre-emit critique: P4 H4 E5 S5 R5 V4 */}
+
+## Le projet
+
+Aplomb est mon application de gestion de budget personnel et de foyer. Elle centralise les revenus, les charges communes ou personnelles, les comptes et l'épargne dans une interface pensée pour faire le point rapidement chaque mois.
+
+## Ce qu'elle permet
+
+- Naviguer par mois et basculer entre une vue **Foyer** et une vue par personne
+- Suivre les revenus fixes ou variables et leurs exceptions mensuelles
+- Répartir les charges communes entre les membres du foyer
+- Gérer les charges fixes, les dépenses personnelles et les transferts
+- Suivre plusieurs objectifs d'épargne, avec versements et retraits
+- Comparer le budget aux méthodes **50/30/20** et **75/15/10**
+- Sauvegarder et restaurer les données au format JSON
+
+## Architecture
+
+- **Frontend** : React, React Router et Recharts
+- **Backend** : Fastify avec validation des données partagée via Zod
+- **Stockage** : SQLite et migrations versionnées
+- **Déploiement** : image Docker auto-hébergée sur mon homelab derrière Traefik
+
+L'application comprend également un mode démonstration totalement isolé, utilisé pour la capture ci-dessus : les personnes, montants et opérations affichés sont fictifs.
+
+## Méthode de développement
+
+Aplomb a été développée en **vibe coding** : les agents IA ont produit et fait évoluer le code à partir de mes demandes. Mon rôle a surtout consisté à définir le besoin, préciser les règles métier, tester le résultat et guider les itérations jusqu'au déploiement sur mon homelab.
+
+## Ce que j'en retiens
+
+Ce projet m'a surtout appris à transformer un besoin personnel en consignes suffisamment précises pour des agents IA, puis à tester, corriger et faire évoluer le résultat jusqu'à obtenir une application réellement utile au quotidien.

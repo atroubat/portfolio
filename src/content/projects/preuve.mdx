@@ -1,0 +1,47 @@
+---
+title: "Preuve"
+description: "Coffre open source et auto-hébergeable pour classer les factures, suivre les garanties et retrouver les documents importants de la maison."
+image: "../../assets/projects/preuve-garanties.png"
+imageAlt: "Interface Preuve affichant des garanties fictives actives, proches de l'échéance et expirées"
+tags: ["React", "Fastify", "TypeScript", "Docker"]
+featured: true
+order: 5
+year: 2026
+role: "Conception produit & Pilotage IA"
+services: ["Frontend", "Backend", "Traitement documentaire", "Self-Hosting"]
+---
+
+{/* Hallmark · pre-emit critique: P4 H4 E5 S5 R5 V4 */}
+
+## Le projet
+
+Preuve est un coffre numérique personnel pour conserver les factures et savoir immédiatement quels achats sont encore couverts. L'application est conçue pour fonctionner sur un réseau privé et garder les documents originaux à la maison.
+
+## Le parcours
+
+1. Déposer une facture PDF ou une photo prise sur téléphone
+2. Extraire localement le magasin, la date, le montant et les articles détectés
+3. Relire et corriger les informations proposées avant le classement
+4. Suivre chaque garantie avec son statut et sa date d'échéance
+5. Retrouver un achat ou un document grâce à la recherche
+
+## Au-delà des factures
+
+Preuve classe aussi les documents liés à la maison : actes, diagnostics, entretien, travaux, assurances ou véhicule. Des dates de rappel peuvent être associées à chaque document pour ne pas oublier une échéance.
+
+## Architecture
+
+- **Frontend** : React et TypeScript, avec une interface responsive installable sur mobile
+- **Backend** : Fastify et contrats TypeScript partagés
+- **Documents** : conservation des originaux, extraction locale du texte et détection des doublons
+- **Déploiement** : conteneur Docker auto-hébergé sur mon homelab
+
+La capture ci-dessus utilise une instance temporaire séparée avec trois achats inventés. Elle ne contient aucune facture ni donnée personnelle réelle.
+
+## Méthode de développement
+
+Preuve a été développée en **vibe coding** : les agents IA ont produit le code à partir de mes demandes. J'ai cadré le produit, défini les parcours et les règles de classement et de garantie, puis testé les fonctionnalités et guidé les itérations jusqu'au déploiement sur mon homelab.
+
+## Ce que j'en retiens
+
+Preuve m'a permis d'apprendre à cadrer un produit plus complexe en vibe coding : découper les parcours, expliciter les règles, vérifier les cas limites et garder la confidentialité comme contrainte tout au long des itérations.
